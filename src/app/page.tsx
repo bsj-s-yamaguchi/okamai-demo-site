@@ -22,9 +22,21 @@ export default function Home() {
     aa: 'カスタムフィールドCaaa',
     ddd: 'カスタムフィールドDbbb',
   });
-  const [widgetBaseUrl, setWidgetBaseUrl] = useState(
-    'https://okamai-web.local'
-  );
+  const [widgetBaseUrl, setWidgetBaseUrl] = useState(() => {
+    if (typeof window !== 'undefined') {
+      // クライアントサイド: Vercel環境を検出
+      if (
+        window.location.hostname.includes('vercel.app') ||
+        window.location.hostname.includes('vercel.com')
+      ) {
+        return (
+          process.env.NEXT_PUBLIC_WIDGET_URL || 'https://agent.dev.okamai.ai'
+        );
+      }
+    }
+    // サーバーサイドまたはローカル環境
+    return process.env.NEXT_PUBLIC_WIDGET_URL || 'https://okamai-web.local';
+  });
   const [configLoaded, setConfigLoaded] = useState(false);
 
   // クライアントサイドかどうかを判定
@@ -40,7 +52,14 @@ export default function Home() {
         if (response.ok) {
           const config = await response.json();
           setScriptId(config.scriptId || '');
-          setWidgetBaseUrl(config.widgetBaseUrl || 'https://okamai-web.local');
+          setWidgetBaseUrl(
+            config.widgetBaseUrl ||
+              process.env.NEXT_PUBLIC_WIDGET_URL ||
+              (typeof window !== 'undefined' &&
+              window.location.hostname.includes('vercel.app')
+                ? 'https://agent.dev.okamai.ai'
+                : 'https://okamai-web.local')
+          );
           setConfigLoaded(true);
           console.log('Config loaded:', config);
         } else {
@@ -464,7 +483,7 @@ export default function Home() {
           {/* 新しい表示形式の説明 */}
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
             <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">
-              🎨 新しい表示形式オプション
+              🎨 新しい表示形式オプション (デフォルト: widget)
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

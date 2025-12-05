@@ -62,8 +62,17 @@ export async function GET() {
       }
     }
 
-    // HTTPSを使用（証明書をシステムに信頼させることで解決）
-    const widgetBaseUrl = 'https://okamai-web.local';
+    // widgetBaseUrlを決定（環境変数が設定されていない場合のフォールバック）
+    let widgetBaseUrl = process.env.NEXT_PUBLIC_WIDGET_URL;
+    if (!widgetBaseUrl) {
+      // Vercel環境の場合は本番URLを使用
+      if (process.env.VERCEL || process.env.VERCEL_ENV) {
+        widgetBaseUrl = 'https://agent.dev.okamai.ai';
+      } else {
+        // ローカル開発環境の場合はローカルURLを使用
+        widgetBaseUrl = 'https://okamai-web.local';
+      }
+    }
 
     return NextResponse.json({
       scriptId,
@@ -77,8 +86,17 @@ export async function GET() {
   } catch (error) {
     console.error('Failed to read config:', error);
 
-    // エラーの場合は、指定されたScript IDを直接返す
-    const widgetBaseUrl = 'https://okamai-web.local';
+    // widgetBaseUrlを決定（環境変数が設定されていない場合のフォールバック）
+    let widgetBaseUrl = process.env.NEXT_PUBLIC_WIDGET_URL;
+    if (!widgetBaseUrl) {
+      // Vercel環境の場合は本番URLを使用
+      if (process.env.VERCEL || process.env.VERCEL_ENV) {
+        widgetBaseUrl = 'https://agent.dev.okamai.ai';
+      } else {
+        // ローカル開発環境の場合はローカルURLを使用
+        widgetBaseUrl = 'https://okamai-web.local';
+      }
+    }
 
     return NextResponse.json({
       scriptId: '',

@@ -18,17 +18,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const widgetUrl = process.env.NEXT_PUBLIC_WIDGET_URL || 'https://okamai-web.local';
+  const widgetDomain = widgetUrl.replace(/^https?:\/\//, '//');
+
   return (
     <html lang="ja">
       <head>
         <link rel="dns-prefetch" href="//demo-site.local" />
-        <link rel="dns-prefetch" href="//okamai-web.local" />
+        <link rel="dns-prefetch" href={widgetDomain} />
         <link rel="dns-prefetch" href="//client-console.local" />
         <link rel="dns-prefetch" href="//brave-console.local" />
         <link rel="dns-prefetch" href="//app-api.local" />
         <link rel="dns-prefetch" href="//console-api.local" />
         <link rel="preconnect" href="//demo-site.local" />
-        <link rel="preconnect" href="//okamai-web.local" />
+        <link rel="preconnect" href={widgetDomain} />
         <link rel="preconnect" href="//client-console.local" />
         <link rel="preconnect" href="//brave-console.local" />
         <link rel="preconnect" href="//app-api.local" />
