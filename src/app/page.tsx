@@ -232,7 +232,7 @@ export default function Home() {
         />
       )}
 
-      <div className="font-sans min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="font-sans min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 overflow-auto h-screen">
         <main className="max-w-6xl mx-auto p-8">
           {/* ヘッダー部分 */}
           <div className="text-center mb-8">
