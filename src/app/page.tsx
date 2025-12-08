@@ -181,26 +181,19 @@ export default function Home() {
       originalError.apply(console, args);
     };
 
-    // 5秒後にタイムアウト（ただし、成功メッセージは引き続き監視）
-    const timeoutId = setTimeout(() => {
-      // まだpending状態の場合のみタイムアウトを設定
-      setDomainVerificationStatus((prevStatus) => {
-        if (prevStatus === 'pending') {
-          setVerificationMessage(
-            'ドメイン検証がタイムアウトしました。スクリプトIDとドメイン設定を確認してください。'
-          );
-          return 'failed';
-        }
-        return prevStatus;
-      });
-    }, 5000);
-
     return () => {
       console.log = originalLog;
       console.error = originalError;
-      clearTimeout(timeoutId);
     };
-  }, []); // 空の依存配列に変更
+  }, [isIframeLoaded]);
+
+  // iframeの読み込みをもってドメイン検証成功として扱う
+  useEffect(() => {
+    if (isIframeLoaded && domainVerificationStatus === 'pending') {
+      setDomainVerificationStatus('success');
+      setVerificationMessage('ウィジェットの読み込みを確認しました。');
+    }
+  }, [isIframeLoaded, domainVerificationStatus]);
 
   return (
     <>
