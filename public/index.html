@@ -1,0 +1,3146 @@
+<html lang="ja"><head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="ナリコマポータルサイト">
+<meta name="author" content="ナリコマグループ">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- CSRF Token -->
+<meta name="csrf-token" content="1Y3lpJ5SLnGjEW4vQ2qe8aIl6QaaQuh67xPgr3oR">
+<title>ナリコマ ポータルサイト</title>
+<!-- Styles -->
+<link href="https://www.narikoma-enterprise.com/portalsite/css/style.css?20221026101200" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/list.css?202107091200" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/mybootstrap.css" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/all.css" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/all.min.css" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/colorbox.css" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/datatables.min.css" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/portal.css?202303231200" rel="stylesheet">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/jquery-ui.min.css?202101071200" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.narikoma-enterprise.com/portalsite/images/apple-touch-icon.png">
+<link rel="icon" sizes="192x192" href="https://www.narikoma-enterprise.com/portalsite/images/apple-touch-icon.png">
+<link href="https://www.narikoma-enterprise.com/portalsite/css/swiper-bundle.min.css" rel="stylesheet">
+
+<script async="" src="https://app.chatplus.jp/cp.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-K1ELSMT1NN"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-K1ELSMT1NN');
+</script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/openclose.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/fixmenu.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/fixmenu_pagetop.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/ddmenu_min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/18ebcd24d2.js"></script><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all"><link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+<script src="https://www.narikoma-enterprise.com/portalsite/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/jquery-2.1.4.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/jquery.colorbox.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/jquery.colorbox-min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/datatables.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/jquery-ui.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/jquery.iframetracker.js"></script>
+
+<script>
+$(document).ready(function(){
+  $(".youtube").colorbox({
+    iframe:true,
+    innerWidth:600,
+    innerHeight:338,
+      maxWidth:"100%",
+      maxHeight:"100%"
+
+  });
+});
+
+$(document).ready(function ($) {
+
+   var w = $(window).width();
+      var x = 600;
+      if (w <= x) {
+
+            $("#myTable").addClass("dt-responsive")
+      }
+
+
+    //処理
+      $('#myTable').DataTable({
+         "language"   : {
+          "decimal":        ".",
+          "emptyTable":     "表示するデータがありません。",
+          "info":           "_START_ ～ _END_ / _TOTAL_ 件中",
+          "infoEmpty":      "0 ～ 0 / 0 件",
+          "infoFiltered":   "(合計 _MAX_ 件からフィルタリングしています)",
+          "infoPostFix":    "",
+          "thousands":      ",",
+          "lengthMenu":     "1ページ _MENU_ 件を表示する",
+          "loadingRecords": "読み込み中...",
+          "processing":     "処理中...",
+          "search":         "検索:",
+          "zeroRecords":    "一致するデータが見つかりません。",
+          "paginate": {
+            "first":      "最初",
+            "last":       "最後",
+            "next":       "次",
+            "previous":   "前"
+          }
+        },
+          'order' :[[ 0, 'desc']],
+         // 件数切替機能
+          'lengthChange': true,
+          // 検索機能
+          'searching': true,
+          // ソート機能
+          'ordering': true,
+          // 情報表示
+          'info': true,
+          // ページング機能
+          'paging': true,
+          'lengthMenu': [ 25, 50, 100, 150],
+          "sDom": '<"datatables-header"fip>',
+          });
+
+      var table = $('#myTable').DataTable();
+
+      $('#datatable_serch').on( 'change', '.search-input-select', function () {
+          table
+               .columns(1)
+              .search( this.value )
+              .draw();
+      } );
+
+});
+
+
+var	analytics = function(page, category, label,userId) {
+
+    var now = new Date();
+    var month = now.getMonth()+1;
+      var Ymd = now.getFullYear() +"-"+ month + "-" + now.getDate();
+      var Hms = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+      var ua = navigator.userAgent;
+      if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+          career = "スマホ";
+        } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+          career = "タブレット";
+          // タブレット用コード
+      } else {
+        career = "PC";
+          // PC用コード
+      }
+  gtag('event', 'page_view', {
+        'page_title':  page + '：：：：：' + category + '：：：：：' + label + '：：：：：' + userId + '：：：：：' + career +  '：：：：：' + Ymd +  '：：：：：' + Hms,
+        'screen_name': page + '：：：：：' + category + '：：：：：' + label + '：：：：：' + userId + '：：：：：' + career +  '：：：：：' + Ymd +  '：：：：：' + Hms
+      });
+};
+
+
+//スマホ用ドロップダウンメニュー
+$(function(){
+    $('.js-menu__item__link').each(function(){
+        $(this).on('click',function(){
+            $(this).toggleClass('on');
+            $("+.submenu",this).slideToggle();
+            return false;
+        });
+    });
+});
+
+</script>
+
+<style type="text/css"></style><style>
+.imageye-selected {
+outline: 2px solid black !important;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+}
+</style><link rel="stylesheet" href="https://appimg.chatplus.jp/app/s/lib/font-awesome-5.13.1/css/all-cp.min.css"><link rel="stylesheet" href="https://app.chatplus.jp/assets/css/chat_common.min.css?v=2025102203"><link rel="stylesheet" href="https://app.chatplus.jp/assets/css/chat.min.css?v=2025102203"><link rel="stylesheet" href="https://appimg.chatplus.jp/app/16478/style/2/design.1760487398.css"><link rel="stylesheet" href="https://appimg.chatplus.jp/app/16478/style/2/custom.1686892924.css"></head>
+<body class="c2 -pagetop -pagetop -pagetop is-fixed is-fixed-pagetop">
+ <header>
+
+<div class="inner">
+    <h1 id="logo">
+  <a href="https://www.narikoma-enterprise.com/portalsite/home">
+    <img src="https://www.narikoma-enterprise.com/portalsite/images/logo.png" alt="ポータルサイト">
+  </a>
+</h1>
+<div id="name" class="bootstrap dropdown">
+<div class="bootstrap float-left">
+    <ul class="bootstrap">
+<li>
+<button type="button" class="btn btn-outline-danger btn-lg" style="width:290px" id="naribiz" onclick="analytics('ヘッダー','サイトリンク','ナリbiz', 'demo123!')" data-url="https://www.narikoma-enterprise.com/portalsite/solutionsignin">お悩み解決サイト　ナリbiz</button>
+</li>
+
+<li>
+<div style="float:right">
+<button type="button" style="width:260px" class="btn btn-outline-success btn-lg" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','新型コロナウイルス関連', 'demo123!');window.open('http://www.narikoma.co.jp/n/buppan/corona/すこやか.html', '_blank')">新型コロナウイルス関連</button>
+</div>
+
+</li>
+</ul>
+</div>
+
+<br>
+<div style="float:right">
+
+<!-- 切替ボタンの設定 -->
+<button type="button" class="btn text-wrap" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<b><font size="4">ようこそ　00000　デモユーザ　さん</font></b>
+</button>
+
+
+<br>
+<div class="bootstrap float-right">
+<nav class="bootstrap navbar navbar-inverse">
+    <ul class="bootstrap nav">
+    <li><a href="https://www.narikoma-enterprise.com/portalsite/mypage" style="color:black" onclick="analytics('ヘッダー','サイトリンク','マイページ', 'demo123!')"><font size="4">マイページ</font></a></li>
+      <li><font size="4">｜</font></li>
+      <li><a href="https://www.narikoma-enterprise.com/portalsite/logout" style="color:black"><font size="4">ログアウト</font></a></li>
+     </ul>
+</nav>
+
+<div class="bootstrap text-right" style="margin-bottom:10px">
+  <input type="text" maxlength="50" id="keword" name="keword" value="" size="" style="ime-mode:active" placeholder="キーワードを入力">
+  <button type="button" id="serchKeword" name="serchKeword" value="post" class="btn btn-flat-simple-mypage" data-url="https://www.narikoma-enterprise.com/portalsite"><i class="fas fa-search" aria-hidden="true"></i></button>
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+<div id="serch_modal_window" style="position:relative;z-index:999;">
+
+        <div id="serch-modal-content" class="bootstrap" style="left: 170px; top: 30px;">
+      <div id="serch_modal_open">
+        <main id="serch_modal_main" style="margin-bottom:30px">
+
+    <div style="text-align:right">
+     <p><a id="serch_modal-close" class="btn-flat-simple-mypage" style="cursor: pointer">閉じる</a></p>
+    </div>
+        </main>
+    </div>
+
+</div>
+
+<script>
+$(function(){
+
+$('#keword ').on('keydown', function () {
+
+var keycode = (event.keyCode ? event.keyCode : event.which);
+if(keycode == '13'){
+  $('#serchKeword').trigger("click");
+}
+});
+
+//モーダルウィンドウを出現させるクリックイベント
+$('#serchKeword ').on('click', function () {
+
+analytics('検索','検索',$('[id="keword"]').val(), 'demo123!');
+
+// 検索キーワードの配列を取得 空白区切り ハイライト表示用
+var searchWords = [];
+// 本文に登録されているHTMLタグをエスケープするための配列
+var escBf = ['<', '>', '"'];
+var escAf = ['', '', ''];
+
+//キーボード操作などにより、オーバーレイが多重起動するのを防止する
+$( this ).blur() ;  //ボタンからフォーカスを外す
+if( $( "#serch-modal-overlay" )[0] ) return false ;	   //新しくモーダルウィンドウを起動しない (防止策1)
+//if($("#serch-modal-overlay")[0]) $("#serch-modal-overlay").remove() ;	 //現在のモーダルウィンドウを削除して新しく起動する (防止策2)
+
+//オーバーレイを出現させる
+$( "body" ).append( '<div id="serch-modal-overlay"></div>' ) ;
+$( "#serch-modal-overlay" ).fadeIn( "slow" ) ;
+
+//コンテンツをセンタリングする
+centeringModalSyncer() ;
+
+//コンテンツをフェードインする
+$( "#serch-modal-content" ).fadeIn( "slow" ) ;
+
+$.ajax({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  },
+  type: 'POST',
+  url: $('#serchKeword').data('url') + "/serchKeword",
+  data: {'keword': $('[id="keword"]').val()},
+  dataType: 'json',
+  beforeSend: function () {
+    $( "#serch-modal-content").append( '<div id="loading" style="text-align:center"><img src="images/ajax-loader.gif" alt="" class="img" /></div>' ) ;
+  }
+}).done(function (data) {
+  $('#loading').remove();
+  let html = '';
+  // 検索結果があったときの処理
+  if (data.length > 0) {
+    html += '<table id="serchResult" class="table table-striped display">';
+    html += '<thead align="center">';
+    html += '<tr>';
+    html += '<th style="background:#0cad7d !important">公開日／更新日</th>';
+    html += '<th style="background:#0cad7d !important">キーワード</th>';
+    html += '</tr>';
+    html += '</thead>';
+    html += '<tbody>';
+    // 検索キーワードの配列を取得
+    searchWords = $('[id="keword"]').val().split(/[\u{20}\u{3000}]/u);
+  }
+  //dataの中身からvalueを取り出す
+  $.each(data, function (index, value) {
+    let dispNm = value.dispNm;
+    let udate = value.UDATE;
+    let url = value.url;
+    let title = value.title;
+    let keyword = value.KEYWORD;
+    let contents = value.CONTENTS;
+
+    let contents_class= "";
+    let contents_nm= "";
+
+    if (contents == "ブログ") {
+
+      contents_class = "contents_blog";
+      contents_nm =  "ブログ";
+
+    } else if (contents == "マニュアル") {
+      contents_class = "contents_movie";
+      contents_nm =  "マニュアル";
+
+    } else if (contents == "アンケート") {
+      contents_class = "contents_question";
+      contents_nm =  "アンケート";
+      //施設コードと施設名を置換する
+      url = url.replace("ins_cd","00000");
+      url = url.replace("ins_nm","デモユーザ");
+
+    } else if (contents == "フィードバック") {
+      contents_class = "contents_feedback";
+      contents_nm =  "お客様の声";
+
+    } else if (contents == "動画") {
+      contents_class = "contents_movie";
+      contents_nm =  "動画";
+
+    }else {
+      contents_class = "contents_monthly";
+      contents_nm =  "毎月更新";
+
+    }
+
+    let imagePath= "";
+    if (url.slice(-4) == ".pdf") {
+      imagePath = 'https://www.narikoma-enterprise.com/portalsite/images/pdficon_large.png';
+    }
+    if (url.slice(-4) == "xlsx" || url.slice(-4) == ".xls") {
+      imagePath = 'https://www.narikoma-enterprise.com/portalsite/images/excel_small_icon.png';
+    }
+
+    // HTMLタグをエスケープ
+    $.each(escBf, function(i) {
+      title = title.replace(new RegExp(escBf[i], 'g'), escAf[i]);
+      dispNm = dispNm.replace(new RegExp(escBf[i], 'g'), escAf[i]);
+      keyword = keyword.replace(new RegExp(escBf[i], 'g'), escAf[i]);
+    });
+    html += '<tr>';
+    if(url !== "") {
+      html += '<td style="width:30%"><a href="'+ url + '" target="_blank" onclick="analytics(\'検索\',\'\', \'' + title + " "+ dispNm + " "+ keyword +  '\', \'demo123!\')">'+ udate + '</a></td>';
+    } else {
+      html += '<td style="width:30%">'+ udate + '</td>';
+    }
+    html += '<td style="width:70%;text-align:left"><span class="'+  contents_class + '">' + contents_nm + '</span>';
+    if(imagePath !== "") {
+      html += '　<img alt="ロゴ" src="' + imagePath + '">';
+    }
+    if(url !== "") {
+      html += '<a href="' + url + '" target="_blank" onclick="analytics(\'検索\',\'\', \'' + title + " "+ dispNm + " "+ keyword +  '\', \'demo123!\')">';
+    }
+
+    // 検索ワードのハイライト フラグ g で全体検索
+    $.each(searchWords, function(i) {
+      title = title.replace(new RegExp(searchWords[i], 'g'), '<span class="mark_search">' + searchWords[i] + '</span>');
+      dispNm = dispNm.replace(new RegExp(searchWords[i], 'g'), '<span class="mark_search">' + searchWords[i] + '</span>');
+      keyword = keyword.replace(new RegExp(searchWords[i], 'g'), '<span class="mark_search">' + searchWords[i] + '</span>');
+    });
+    html += title + " "+ dispNm + " "+ keyword;
+    if(url !== "") {
+      html += '</a>';
+    }
+    html += '</td></tr>';
+
+  })
+
+  // 検索結果があったときの処理
+  if (data.length > 0) {
+    html += '</tbody>';
+    html += '</table>';
+  }
+
+  $('#serch-modal-content').append(html); //できあがったテンプレートをビューに追加
+  if (data.length > 0) {
+    datatable();
+  }
+
+  // 検索結果がなかったときの処理
+  if (data.length === 0) {
+     $("#serch-modal-content").append( '<div id="serchMesagge" style="text-align:center">検索結果がありませんでした</div>' ) ;
+  }
+
+}).fail(function () {
+  $('#loading').remove();
+  $("#serch-modal-content").append( '<div id="serchMesagge" style="text-align:center">通信に失敗しました</div>' ) ;
+});
+
+
+//[#serch-modal-overlay]、または[#serrch-modal-close]をクリックしたら…
+$( "#serch-modal-overlay,#serch_modal-close" ).unbind().click( function(){
+
+  //[#serch-modal-content]と[#serch-modal-overlay]をフェードアウトした後に…
+  $( "#serch-modal-content,#serch-modal-overlay" ).fadeOut( "slow" , function(){
+
+    //[#serch-modal-overlay]を削除する
+    $('#serch-modal-overlay').remove() ;
+    $('#serchMesagge').remove() ;
+    $('#serchResult').remove() ;
+    $('#serchResult_wrapper').remove() ;
+
+  } ) ;
+
+} ) ;
+
+} ) ;
+
+//リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
+$( window ).resize( centeringModalSyncer ) ;
+
+//センタリングを実行する関数
+function centeringModalSyncer() {
+
+//画面(ウィンドウ)の幅、高さを取得
+var w = $( window ).width() ;
+var h = $( window ).height() ;
+
+// コンテンツ(#serch-modal-content)の幅、高さを取得
+// jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+//		 var cw = $( "#serch-modal-content" ).outerWidth( {margin:true} );
+//		 var ch = $( "#serch-modal-content" ).outerHeight( {margin:true} );
+var cw = $( "#serch-modal-content" ).outerWidth();
+var ch = $( "#serch-modal-content" ).outerHeight();
+
+//センタリングを実行する
+$( "#serch-modal-content" ).css( {"left": ((w - cw)/2) + "px","top": "30px"} ) ;
+}
+
+function datatable() {
+
+var w = $(window).width();
+var x = 600;
+if (w <= x) {
+  $("#serchResult").addClass("dt-responsive")
+}
+
+//処理
+$('#serchResult').DataTable({
+  "language": {
+    "decimal":			".",
+    "emptyTable":		"表示するデータがありません。",
+    "info":				"_START_ ～ _END_ / _TOTAL_ 件中",
+    "infoEmpty":		"0 ～ 0 / 0 件",
+    "infoFiltered":		"(合計 _MAX_ 件からフィルタリングしています)",
+    "infoPostFix":		"",
+    "thousands":		",",
+    "lengthMenu":		"1ページ _MENU_ 件を表示する",
+    "loadingRecords":	"読み込み中...",
+    "processing":		"処理中...",
+    "search":			"検索:",
+    "zeroRecords":		"一致するデータが見つかりません。",
+    "paginate": {
+      "first":	"最初",
+      "last":	  	"最後",
+      "next":	  	"次",
+      "previous":	"前"
+    }
+  },
+  'order':[[ 0, 'desc']],
+   // 件数切替機能
+  'lengthChange': false,
+  // 検索機能
+  'searching': false,
+  // ソート機能
+  'ordering': true,
+  // 情報表示
+  'info': true,
+  // ページング機能
+  'paging': true,
+  'lengthMenu': [ 5, 10, 15],
+  "sDom": '<"datatables-header"fip>',
+  'columnDefs': [
+    // 幅をパーセントで指定
+    { targets: 0, width: '30%' },
+    { targets: 1, width: '70%' }
+  ]
+});
+
+var table = $('#serchResult').DataTable();
+};
+
+});
+</script>
+
+<style>
+#serchResult {
+max-height: 100vh;
+max-width: 100vh;
+width: 100%!important;
+height: 75%!important;
+}
+
+#serch-modal-content {
+max-height: 85vh;
+width: 80% ;
+margin: 0 ;
+padding: 10px 20px ;
+border: 2px solid #aaa ;
+background: #fff ;
+position: fixed ;
+display: none ;
+z-index: 2 ;
+overflow-y:auto;
+}
+
+#serch-modal-overlay {
+z-index: 1 ;
+display: none ;
+position: fixed ;
+top: 0 ;
+left: 0 ;
+width: 100% ;
+height: 120% ;
+background-color: rgba( 0,0,0, 0.75 ) ;
+}
+</style>
+</div>
+
+
+</header>
+
+
+ 
+<!--PC用（901px以上端末）メニュー-->
+<nav id="menubar" class="nav-fix-pos">
+<ul class="inner">
+<li><a href="https://www.narikoma-enterprise.com/portalsite/home" onclick="analytics('ヘッダー','サイトリンク','ホーム', 'demo123!')"><b>ホーム</b></a></li>
+                                          <li class="bootstrap dropdown">
+    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>更新情報<br>ピックアップ</b><span></span></a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item text-dark menutip" href="updinfopage" onclick="analytics('ナビゲーションバー','更新情報','更新情報', 'demo123!')" data-menutip="ポータルサイト内の情報が更新・公開された際のご案内">更新情報</a>
+      <a class="dropdown-item text-dark menutip" href="#pickupH" onclick="analytics('ナビゲーションバー','ピックアップ','ピックアップ', 'demo123!')" data-menutip="ポータルサイト内の注目コンテンツのご案内">ピックアップ</a>
+    </div>
+  </li>
+
+  <li class="bootstrap dropdown">
+    <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLinkDayori" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>25日配信　献立だより<br>10日配信　調理レシピ</b><span></span></a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkDayori">
+      <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#dayori');analytics('ナビゲーションバー','献立だより','献立だより', 'demo123!')" data-menutip="献立形式のカレンダーはこちらからダウンロード">献立だより</a>
+      <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#recipe');analytics('ナビゲーションバー','調理レシピ','調理レシピ', 'demo123!')" data-menutip="お食事の盛付方法や作業手順はこちらからダウンロード">調理レシピ</a>
+    </div>
+  </li>
+          <li class="bootstrap dropdown">
+    <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLinkKoshin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>毎月更新資料</b><span></span></a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkKoshin">
+                  <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#naricommu');analytics('ナビゲーションバー','献立・商品情報','献立・商品情報', 'demo123!')" data-menutip="献立や商品に関する最新情報を掲載">25日配信　献立・商品情報</a>
+        <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#naricommu2');analytics('ナビゲーションバー','ナリコマタイムズ','ナリコマタイムズ', 'demo123!')" data-menutip="献立やサービスに関する最新情報を掲載 ">10日配信　ナリコマタイムズ</a>
+        <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#changeddish');analytics('ナビゲーションバー','代替料理・消耗品','代替料理・消耗品', 'demo123!')" data-menutip="補完発注商品の商品・価格一覧表">最終金曜日配信　代替料理・消耗品</a>
+        <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#selection');analytics('ナビゲーションバー','セレクション・禁止食一覧','セレクション・禁止食一覧', 'demo123!')" data-menutip="毎月の料理セレクション・禁止食の一覧表 ">25日配信　セレクション・禁止食一覧</a>
+                                      <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#bread');analytics('ナビゲーションバー','手作りパン','手作りパン', 'demo123!')" data-menutip="別請求の手作りパンの価格表">25日配信　手作りパン</a>
+                                  <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#catalog');analytics('ナビゲーションバー','カタログ発注','カタログ発注', 'demo123!')" data-menutip="カタログ発注関連資料">カタログ発注</a>
+        <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#menu');analytics('ナビゲーションバー','お品書き・おすすめ料理','お品書き・おすすめ料理', 'demo123!')" data-menutip="歳時の行事食献立のお品書はこちらからダウンロード">お品書き・おすすめ料理</a>
+        <a class="dropdown-item text-dark menutip" href="#naviscroll" onclick="clickMonthlyContents('#calendar');analytics('ナビゲーションバー','カレンダー','カレンダー', 'demo123!')" data-menutip="「お客様公開資料」より一部抜粋したイベントカレンダー">カレンダー</a>
+                            <a class="dropdown-item text-dark" href="#naviscroll" onclick="clickMonthlyContents('#ekiben');analytics('ナビゲーションバー','駅弁・弁当','駅弁・弁当', 'demo123!')">駅弁・弁当</a>
+                            <a class="dropdown-item text-dark" href="#naviscroll" onclick="clickMonthlyContents('#himawari');analytics('ナビゲーションバー','ひまわり非常食','ひまわり非常食', 'demo123!')">ひまわり非常食</a>
+                      <a class="dropdown-item text-dark" href="#naviscroll" onclick="clickMonthlyContents('#onepoint');analytics('ナビゲーションバー','ワンポイントテクニック','ワンポイントテクニック', 'demo123!')">ワンポイントテクニック</a>
+                          </div>
+  </li>
+          <li class="bootstrap dropdown">
+    <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLinkManual" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>マニュアル・動画</b><span></span></a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual">
+      <a class="dropdown-item text-dark menutip" href="moviepage" onclick="analytics('ナビゲーションバー','動画一覧','動画一覧', 'demo123!')" data-menutip="厨房ノウハウ動画のリンク集">お役立ち動画</a>
+                            <!-- ナリコマの『これだけは！』 -->
+                      <a class="dropdown-item text-dark menutip" href="manualpageall" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')" data-menutip="ナリコマのサービス一覧">ナリコマの『これだけは！』</a>
+          <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <div class="dropdown-submenu dropright">
+              <a href="#" class="dropdown-toggle dropdown-item text-dark" role="button" id="dropdownMenuLinkManual2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">厨房運営</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual2">
+                                        <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC34" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">運営全般</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC32" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">危機管理（非常時・災害時）</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC33" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">厨房ﾘｰﾀﾞｰ（ﾁｰﾌ）育成ﾂｰﾙ</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </div></div>
+                                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <div class="dropdown-submenu dropright">
+              <a href="#" class="dropdown-toggle dropdown-item text-dark" role="button" id="dropdownMenuLinkManual2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">栄養管理</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual2">
+                                        <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC44" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">栄養管理</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </div></div>
+                                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <div class="dropdown-submenu dropright">
+              <a href="#" class="dropdown-toggle dropdown-item text-dark" role="button" id="dropdownMenuLinkManual2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">厨房業務</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual2">
+                                        <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC27" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">発注</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC21" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">ﾀﾌﾞﾚｯﾄ・WEB系サービス</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC30" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">調理方法</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC28" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">盛り付け方法</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC31" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">配膳方法</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC25" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">検収・収納（検品ｼｽﾃﾑ）</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC26" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">洗浄</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC23" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">厨房業務一日の流れ</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC29" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">衛生管理</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC45" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">衛生管理（作成用）</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC22" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">厨房内必要書類</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </div></div>
+                                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <div class="dropdown-submenu dropright">
+              <a href="#" class="dropdown-toggle dropdown-item text-dark" role="button" id="dropdownMenuLinkManual2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">サービス仕様書</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual2">
+                                        <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC43" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">サービス仕様書</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </div></div>
+                                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <div class="dropdown-submenu dropright">
+              <a href="#" class="dropdown-toggle dropdown-item text-dark" role="button" id="dropdownMenuLinkManual2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">掲示用ポスター・配布用資料</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual2">
+                                        <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC35" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">ナリコマ参考資料</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC37" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">厨房業務</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC38" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">衛生管理</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC36" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">人材育成</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </div></div>
+                                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <div class="dropdown-submenu dropright">
+              <a href="#" class="dropdown-toggle dropdown-item text-dark" role="button" id="dropdownMenuLinkManual2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">人材育成支援ツール</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkManual2">
+                                        <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC39" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">採用～入社まで</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC41" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">入社後</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- ナリコマの『これだけは！』 -->
+        
+        <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <a class="dropdown-item text-dark" href="manualpageall#catC42" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">厨房リーダーになる前に</a>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </div></div>
+                                        <!-- ループをスキップする -->
+                    <a class="dropdown-item text-dark" href="https://www.narikoma-enterprise.com/portalsite/supportpage" onclick="analytics('ナビゲーションバー', 'マニュアル', '外国人スタッフ支援', 'demo123!')">外国人スタッフ支援</a>
+      <a class="dropdown-item text-dark" href="https://www.narikoma-enterprise.com/portalsite/recruitsupport" onclick="analytics('ナビゲーションバー', 'マニュアル', 'パート・アルバイトスタッフ採用支援', 'demo123!')">パート・アルバイトスタッフ採用支援</a>
+    </div>
+  </li>
+    
+                        <li class="bootstrap dropdown">
+        <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLinkQuestion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>ご意見・ご要望</b><span></span></a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkQuestion">
+          <a class="dropdown-item text-dark" href="https://www.narikoma-enterprise.com/portalsite/questionpage" onclick="analytics('ナビゲーションバー','ご意見・ご要望','アンケート一覧', 'demo123!')">アンケート一覧</a>
+          <a class="dropdown-item text-dark menutip" href="https://www.narikoma-enterprise.com/portalsite/feedback" onclick="analytics('ナビゲーションバー','ご意見・ご要望','フィードバック', 'demo123!')" data-menutip="お客様からいただいたご意見・ご要望への取り組みを掲載しています">《随時更新》お客様の声への取り組み</a>
+        </div>
+      </li>
+              
+<li class="bootstrap dropdown">
+  <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLinkSite" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>外部サイト</b><span></span></a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkSite">
+    <a class="dropdown-item text-dark menutip" href="https://www.narikoma-group.co.jp/corp/" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','ナリコマ企業サイト', 'demo123!')" data-menutip="ナリコマグループの
+コーポレートサイトへ移動します">ナリコマ企業サイト</a>
+    <a class="dropdown-item text-dark" href="https://narikoma.xsrv.jp/monthly_buppan/" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','ブログ', 'demo123!')">ブログ</a>
+    <a class="dropdown-item text-dark menutip" href="https://www.narikoma-enterprise.com/portalsite/solutionsignin" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','ナリbiz', 'demo123!')" data-menutip="お客様のお悩み解決サイト">ナリbiz</a>
+    <a class="dropdown-item text-dark" href="https://www.narikoma-enterprise.com/portalsite/zendesksignin" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','コミュニティサイト', 'demo123!')">コミュニティサイト</a>
+  </div>
+</li>
+</ul>
+</nav>
+<!--小さな端末用（900px以下端末）メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="https://www.narikoma-enterprise.com/portalsite/home" onclick="analytics('ナビゲーションバー','サイトリンク','ホーム', 'demo123!')"><b>ホーム</b></a></li>
+                                          <li>
+    <a class="menu__item__link js-menu__item__link" href="#"><b>更新情報<br>ピックアップ</b><span></span></a>
+    <ul class="submenu">
+      <li class="submenu__item"><a href="updinfopage" onclick="analytics('ナビゲーションバー','更新情報','更新情報', 'demo123!')"><b>更新情報</b></a></li>
+      <li class="submenu__item"><a href="#pickupH" onclick="analytics('ナビゲーションバー','ピックアップ','ピックアップ', 'demo123!')"><b>ピックアップ</b></a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a class="menu__item__link js-menu__item__link" href="#"><b>25日配信　献立だより<br>10日配信　調理レシピ</b><span></span></a>
+    <ul class="submenu">
+      <li class="submenu__item"><a href="#dayori" onclick="clickMonthlyContents('#dayori');analytics('ナビゲーションバー','献立だより','献立だより', 'demo123!')"><b>献立だより</b></a></li>
+      <li class="submenu__item"><a href="#recipe" onclick="clickMonthlyContents('#recipe');analytics('ナビゲーションバー','調理レシピ','調理レシピ', 'demo123!')"><b>調理レシピ</b></a></li>
+    </ul>
+  </li>
+
+    <li>
+  <a class="menu__item__link js-menu__item__link" href="#"><b>毎月更新資料</b></a>
+  <ul class="submenu">
+              <li class="submenu__item"><a href="#naricommu" onclick="clickMonthlyContents('#naricommu');analytics('ナビゲーションバー','献立・商品情報','献立・商品情報', 'demo123!')"><b>献立・商品情報</b></a></li>
+      <li class="submenu__item"><a href="#naricommu2" onclick="clickMonthlyContents('#naricommu2');analytics('ナビゲーションバー','ナリコマタイムズ','ナリコマタイムズ', 'demo123!')"><b>ナリコマタイムズ</b></a></li>
+      <li class="submenu__item"><a href="#changeddish" onclick="clickMonthlyContents('#changeddish');analytics('ナビゲーションバー','代替料理・消耗品','代替料理・消耗品', 'demo123!')"><b>代替料理・消耗品</b></a></li>
+      <li class="submenu__item"><a href="#selection" onclick="clickMonthlyContents('#selection);analytics('ナビゲーションバー','セレクション・禁止食一覧','セレクション・禁止食一覧', 'demo123!')"><b>セレクション・禁止食一覧</b></a></li>
+                                <li class="submenu__item"><a href="#bread" onclick="clikcBread();analytics('ナビゲーションバー','手作りパン','手作りパン', 'demo123!')"><b>手作りパン</b></a></li>
+                            <li class="submenu__item"><a href="#catalog" onclick="clickMonthlyContents('#catalog');analytics('ナビゲーションバー','カタログ発注','カタログ発注', 'demo123!')"><b>カタログ発注</b></a></li>
+      <li class="submenu__item"><a href="#menu" onclick="clickMonthlyContents('#menu');analytics('ナビゲーションバー','お品書き・おすすめ料理','お品書き・おすすめ料理', 'demo123!')"><b>お品書き・おすすめ料理</b></a></li>
+      <li class="submenu__item"><a href="#calendar" onclick="clickMonthlyContents('#calendar);analytics('ナビゲーションバー','カレンダー','カレンダー', 'demo123!')"><b>カレンダー</b></a></li>
+                      <li class="submenu__item"><a href="#ekiben" onclick="clickMonthlyContents('#ekiben');analytics('ナビゲーションバー','駅弁・弁当','駅弁・弁当', 'demo123!')"><b>駅弁・弁当</b></a></li>
+                      <li class="submenu__item"><a href="#himawari" onclick="clickMonthlyContents('#himawari');analytics('ナビゲーションバー','ひまわり非常食','ひまわり非常食', 'demo123!')"><b>ひまわり非常食</b></a></li>
+                  <li class="submenu__item"><a href="#onepoint" onclick="clickMonthlyContents('#onepoint');analytics('ナビゲーションバー','ワンポイントテクニック','ワンポイントテクニック', 'demo123!')"><b>ワンポイントテクニック</b></a></li>
+                    </ul>
+</li>
+
+      <li>
+    <a class="menu__item__link js-menu__item__link" href="#"><b>マニュアル・動画</b></a>
+    <ul class="submenu">
+                <li class="submenu__item"><a href="moviepage" onclick="analytics('ナビゲーションバー','動画一覧','動画一覧', 'demo123!')"><b>お役立ち動画</b></a></li>
+                  <!-- 子メニューがある場合のメニュー表示 -->
+        
+        <!-- 子メニューがない場合のメニュー表示 -->
+                              <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <li class="submenu__item">
+              <a class="menu__item__link subsub__item__link js-menu__item__link" href="#"><b>厨房運営</b></a>
+                <ul class="submenu">
+                                        <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC34" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>運営全般</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC32" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>危機管理（非常時・災害時）</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC33" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>厨房ﾘｰﾀﾞｰ（ﾁｰﾌ）育成ﾂｰﾙ</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </ul></li>
+                                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <li class="submenu__item">
+              <a class="menu__item__link subsub__item__link js-menu__item__link" href="#"><b>栄養管理</b></a>
+                <ul class="submenu">
+                                        <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC44" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>栄養管理</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </ul></li>
+                                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <li class="submenu__item">
+              <a class="menu__item__link subsub__item__link js-menu__item__link" href="#"><b>厨房業務</b></a>
+                <ul class="submenu">
+                                        <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC27" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>発注</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC21" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>ﾀﾌﾞﾚｯﾄ・WEB系サービス</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC30" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>調理方法</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC28" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>盛り付け方法</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC31" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>配膳方法</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC25" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>検収・収納（検品ｼｽﾃﾑ）</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC26" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>洗浄</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC23" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>厨房業務一日の流れ</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC29" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>衛生管理</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC45" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>衛生管理（作成用）</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC22" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>厨房内必要書類</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </ul></li>
+                                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <li class="submenu__item">
+              <a class="menu__item__link subsub__item__link js-menu__item__link" href="#"><b>サービス仕様書</b></a>
+                <ul class="submenu">
+                                        <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC43" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>サービス仕様書</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </ul></li>
+                                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <li class="submenu__item">
+              <a class="menu__item__link subsub__item__link js-menu__item__link" href="#"><b>掲示用ポスター・配布用資料</b></a>
+                <ul class="submenu">
+                                        <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC35" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>ナリコマ参考資料</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC37" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>厨房業務</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC38" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>衛生管理</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC36" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>人材育成</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </ul></li>
+                                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                      <!-- 親メニューを表示 -->
+            <li class="submenu__item">
+              <a class="menu__item__link subsub__item__link js-menu__item__link" href="#"><b>人材育成支援ツール</b></a>
+                <ul class="submenu">
+                                        <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC39" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>採用～入社まで</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC41" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>入社後</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                        <!-- ループをスキップする -->
+                      <!-- 子メニューがある場合のメニュー表示 -->
+                                                    <!-- 子メニューを表示 -->
+            <li class="submenu__item subsub__item"><a href="manualpageall#catC42" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>厨房リーダーになる前に</b></a></li>
+          
+                        <!-- 子メニューをすべて表示したらdivタグをとじる -->
+                          </ul></li>
+                                        <!-- ループをスキップする -->
+                    <li class="submenu__item"><a href="https://www.narikoma-enterprise.com/portalsite/supportpage" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><b>外国人スタッフ支援</b></a></li>
+    </ul>
+  </li>
+
+
+                        <li>
+        <a class="menu__item__link js-menu__item__link" href="#"><b>ご意見・ご要望</b></a>
+        <ul class="submenu">
+          <li class="submenu__item"><a href="https://www.narikoma-enterprise.com/portalsite/questionpage" onclick="analytics('ナビゲーションバー','ご意見・ご要望','アンケート一覧', 'demo123!')">アンケート一覧</a></li>
+          <li class="submenu__item"><a href="https://www.narikoma-enterprise.com/portalsite/feedback" onclick="analytics('ナビゲーションバー','ご意見・ご要望','フィードバック', 'demo123!')">《随時更新》お客様の声への取り組み</a></li>
+
+        </ul>
+      </li>
+                  <li>
+  <a class="menu__item__link js-menu__item__link" href="#"><b>外部サイト</b></a>
+  <ul class="submenu">
+    <li class="submenu__item"><a href="https://www.narikoma-group.co.jp/corp/" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','ナリコマ企業サイト', 'demo123!')"><b>ナリコマ企業サイト</b></a></li>
+    <li class="submenu__item"><a href="https://narikoma.xsrv.jp/monthly_buppan/" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','ブログ', 'demo123!')"><b>ブログ</b></a></li>
+    <li class="submenu__item"><a href="https://www.narikoma-enterprise.com/portalsite/solutionsignin" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','ナリbiz', 'demo123!')"><b>ナリbiz</b></a></li>
+    <li class="submenu__item"><a href="https://www.narikoma-enterprise.com/portalsite/zendesksignin" target="_blank" onclick="analytics('ナビゲーションバー','サイトリンク','コミュニティサイト', 'demo123!')"><b>コミュニティサイト</b></a></li>
+  </ul>
+</li>
+
+</ul>
+</nav>
+<div id="contents" class="inner">
+  <div id="contents-in">
+     
+
+
+
+<div id="main">
+<input type="hidden" name="_token" value="1Y3lpJ5SLnGjEW4vQ2qe8aIl6QaaQuh67xPgr3oR">
+<section id="new">
+
+<div id="news_tab_area">
+<input id="tab-a" type="radio" role="tab" name="tab-radio" class="tab-input" value="usage" checked="">
+<p class="tab-label-heading selected">
+  <label class="tab-label" for="tab-a">
+    <i class="fa fa-info-circle" aria-hidden="true">重要なお知らせ</i>
+  </label>
+</p>
+<input id="tab-b" type="radio" role="tab" name="tab-radio" class="tab-input" value="type">
+<p class="tab-label-heading">
+  <label class="tab-label" for="tab-b">
+    <i class="fa fa-comment-dots" aria-hidden="true">担当からのお知らせ
+              </i>
+  </label>
+</p>
+
+<div class="tab-panel panel-a" role="tabpanel">
+  <div>
+    <div class="row p-1">
+      <div id="oshirase" class="container-fluid">
+                                     <div style="height: 330px; overflow-y: scroll; border: 1px #999999 solid; padding: 5px; margin-bottom: 20px;">
+                                                                                                        <span>お知らせはありません</span>
+                                                                </div>
+                  </div>
+    </div>
+  </div>
+</div>
+<div class="tab-panel panel-b" role="tabpanel">
+  <div>
+    <div style="height: 330px; overflow-y: scroll; border: 1px #999999 solid; padding: 5px; margin-bottom:20px;">
+                  <span>担当からのお知らせはありません</span>
+              </div>
+  </div>
+</div>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: solid 2px #ccc;">
+<h4 class="sec_ttl kondate_news_title" style="border: none; margin: 0px;">
+  <i class="fa fa-comment-dots" aria-hidden="true">献立・商品に関するお知らせ</i>
+</h4>
+<p class="r">
+  <a href="infomenupage" class="btn-flat-simple" onclick="analytics('ホーム','献立・商品情報','献立・商品情報（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての献立・商品に関するお知らせはこちら</a>
+</p>
+</div>
+<div style="height: 400px; overflow-y: scroll; border: 1px #999999 solid; margin-bottom:20px;">
+              <dl>
+      <dt>2025/12/10</dt>
+      <dd>
+                      <span class="contents_monthly">毎月更新</span>
+        
+                      最新の調理レシピ(12月10日配信)を公開しました。
+                              </dd>
+    </dl>
+                    <dl>
+      <dt>2025/11/25</dt>
+      <dd>
+                      <span class="contents_monthly">毎月更新</span>
+        
+                      最新の献立・商品情報(11月25日配信)を公開しました。<br>最新の手作りパン(11月25日配信)を公開しました。<br>最新のセレクション・禁食一覧(11月25日配信)を公開しました。<br>最新の献立だより(11月25日配信)を公開しました。
+                              </dd>
+    </dl>
+                    <dl>
+      <dt>2025/11/25</dt>
+      <dd>
+                      <span class="contents_monthly">毎月更新</span>
+        
+                      最新の献立・商品情報(11月25日配信)を公開しました。<br>最新のセレクション・禁食一覧(11月25日配信)を公開しました。<br>最新の献立だより(11月25日配信)を公開しました。
+                              </dd>
+    </dl>
+        </div>
+
+<h2>ナリコマダイレクト・お役立ち動画</h2>
+<div class="bootstrap" style="margin-bottom:5px">
+  <div class="container-fluid">
+        <div class="row p-1">
+              <div class="col-sm-8">
+    <div class="embed-responsive embed-responsive-16by9 youtubeclick">
+      <input type="hidden" id="youtubeUid" name="youtubeUid" value="demo123!">
+      <input type="hidden" id="youtubeNm" name="youtubeNm" value="ナリコマDIRECT2025年12月">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bAOLKk45xuE?rel=0" allowfullscreen=""></iframe>
+    </div>
+    </div>
+
+              <div class="col-sm-4">
+    <a href="moviepage" onclick="analytics('ホーム','動画一覧', '動画一覧', 'demo123!')"><img src="images/movie_banner.png"></a>
+                <div class="embed-responsive embed-responsive-16by9 youtubeclickS">
+        <input type="hidden" id="youtubeUidS" name="youtubeUidS" value="demo123!">
+        <input type="hidden" id="youtubeNmS" name="youtubeNmS" value="【ゼリー食】カット方法の工夫で時短裏ワザ！（1分46秒）">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GYNmsnh5gi8" allowfullscreen=""></iframe>
+      </div>
+            </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="updateInfo">更新情報</h2>
+          <dl>
+    <dt>2025/12/15</dt>
+    <dd>
+                  <span class="contents_question">アンケート</span>
+      
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdI5gRVDkOg9s4M8gf7jfL2Q1gqTzM62WsfVDgkYS0Exiwu6w/viewform?usp=pp_url&amp;entry.172165279=00000&amp;entry.2140112498=デモユーザ" target="_blank" onclick="analytics('ホーム','更新情報','&lt;b&gt;&lt;span style=&quot;font-size:15px&quot;&gt;対象商品：12月15日(夕) &lt;/span&gt;&lt;span style=&quot;font-size:16px&quot;&gt; &lt;font color =&quot;blown&quot;&gt;いんげんのスローサラダ&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-size:15px&quot;&gt; 公開しました&lt;/font&gt;&lt;/span&gt;&lt;/b&gt;', 'demo123!')"><b><span style="font-size:15px">対象商品：12月15日(夕) </span><span style="font-size:16px"> <font color="blown">いんげんのスローサラダ</font></span><span style="font-size:15px"> 公開しました</span></b></a>
+                                        <span class="newicon">NEW</span>
+      
+    </dd>
+  </dl>
+              <dl>
+    <dt>2025/12/12</dt>
+    <dd>
+                  <span class="contents_question">アンケート</span>
+      
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdM3xMBsL4BQ79tEVg4aSNH2Beud_PMqWZjkr9OF_Z2nQUt8w/viewform?usp=pp_url&amp;entry.172165279=00000&amp;entry.2140112498=デモユーザ" target="_blank" onclick="analytics('ホーム','更新情報','&lt;b&gt;&lt;span style=&quot;font-size:15px&quot;&gt;対象商品：12月12日(昼) &lt;/span&gt;&lt;span style=&quot;font-size:18px&quot;&gt; &lt;font color =&quot;blown&quot;&gt;ちらし寿司&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-size:15px&quot;&gt; 公開しました&lt;/font&gt;&lt;/span&gt;&lt;/b&gt;', 'demo123!')"><b><span style="font-size:15px">対象商品：12月12日(昼) </span><span style="font-size:18px"> <font color="blown">ちらし寿司</font></span><span style="font-size:15px"> 公開しました</span></b></a>
+                                        <span class="newicon">NEW</span>
+      
+    </dd>
+  </dl>
+              <dl>
+    <dt>2025/12/11</dt>
+    <dd>
+                  <span class="contents_question">アンケート</span>
+      
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScOLk76DnbYh4oGTinzJElMqJGlWepcanzwrqf_9xDwLUmR7Q/viewform?usp=pp_url&amp;entry.172165279=00000&amp;entry.2140112498=デモユーザ" target="_blank" onclick="analytics('ホーム','更新情報','&lt;b&gt;&lt;span style=&quot;font-size:15px&quot;&gt;対象商品：12月11日(昼) &lt;/span&gt;&lt;span style=&quot;font-size:16px&quot;&gt; &lt;font color =&quot;blown&quot;&gt;奈良のっぺ[奈良県郷土料理]&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-size:15px&quot;&gt; 公開しました&lt;/font&gt;&lt;/span&gt;&lt;/b&gt;', 'demo123!')"><b><span style="font-size:15px">対象商品：12月11日(昼) </span><span style="font-size:16px"> <font color="blown">奈良のっぺ[奈良県郷土料理]</font></span><span style="font-size:15px"> 公開しました</span></b></a>
+                                        <span class="newicon">NEW</span>
+      
+    </dd>
+  </dl>
+              <dl>
+    <dt>2025/12/10</dt>
+    <dd>
+                  <span class="contents_monthly">毎月更新</span>
+      
+                  最新の調理レシピ(12月10日配信)を公開しました。
+                
+    </dd>
+  </dl>
+              <dl>
+    <dt>2025/12/10</dt>
+    <dd>
+                  <span class="contents_monthly">毎月更新</span>
+      
+                  最新のナリコマタイムズ(12月10日配信)を公開しました。
+                
+    </dd>
+  </dl>
+            <p class="r"><a href="updinfopage" class="btn-flat-simple" onclick="analytics('ホーム','更新情報','更新情報（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての更新情報</a></p>
+
+<div id="pickupH" style="margin-bottom:150px;">
+</div>
+<h2>ピックアップ</h2>
+<div class="bootstrap" id="pickup">
+<div class="container-fluid mb-3">
+
+<div class="row">
+      <div class="col-sm-4 border border-dark mb-1 d-flex align-items-start text-left p-0">
+      <div style="font-size: 13px;">
+      <span id="pickuptitle"><font size="4">♪ユーザーコミュニティサイト<br>回答募集中！♫</font></span>
+                  <span class="newicon">NEW</span>
+                <div class="text-left">
+        <p>温小鉢や冷小鉢に<font size="3" color="blue"><b>もやしやごぼうなどが使われている場合</b></font><br>軟菜食の対応はどのようになさっていますか・・・
+
+                <a href="https://narikoma-enterprisesupport.zendesk.com/hc/ja/community/topics" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot;&gt;♪ユーザーコミュニティサイト&lt;br&gt;回答募集中！♫&lt;/font&gt;', 'demo123!')">
+      
+            </a></p><div><a href="https://narikoma-enterprisesupport.zendesk.com/hc/ja/community/topics" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot;&gt;♪ユーザーコミュニティサイト&lt;br&gt;回答募集中！♫&lt;/font&gt;', 'demo123!')">
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>こちらをクリック
+        </a></div><a href="https://narikoma-enterprisesupport.zendesk.com/hc/ja/community/topics" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot;&gt;♪ユーザーコミュニティサイト&lt;br&gt;回答募集中！♫&lt;/font&gt;', 'demo123!')">
+      </a>
+      </div>
+    </div>
+  </div>
+
+        <div class="col-sm-4 border border-dark mb-1 d-flex align-items-start text-left p-0">
+      <div style="font-size: 13px;">
+      <span id="pickuptitle"><font size="4">♪ユーザーコミュニティサイト<br>回答募集中！♪</font></span>
+                  <span class="newicon">NEW</span>
+                <div class="text-left">
+        <p>この時期ノロが怖いので、マニュアルは一応あるのですが、<font size="3" color="blue"><b>「実際の運用」</b></font><br>がまだ不安です・・・
+
+                <a href="https://narikoma-enterprisesupport.zendesk.com/hc/ja/community/topics" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot;&gt;♪ユーザーコミュニティサイト&lt;br&gt;回答募集中！♪&lt;/font&gt;', 'demo123!')">
+      
+            </a></p><div><a href="https://narikoma-enterprisesupport.zendesk.com/hc/ja/community/topics" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot;&gt;♪ユーザーコミュニティサイト&lt;br&gt;回答募集中！♪&lt;/font&gt;', 'demo123!')">
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>こちらをクリック
+        </a></div><a href="https://narikoma-enterprisesupport.zendesk.com/hc/ja/community/topics" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot;&gt;♪ユーザーコミュニティサイト&lt;br&gt;回答募集中！♪&lt;/font&gt;', 'demo123!')">
+      </a>
+      </div>
+    </div>
+  </div>
+
+        <div class="col-sm-4 border border-dark mb-1 d-flex align-items-start text-left p-0">
+      <div style="font-size: 13px;">
+      <span id="pickuptitle"><font size="4">１月献立商品<br>～よくあるお問合せ～</font></span>
+                <div class="text-left">
+        <p>よくあるお問合せをまとめ一覧にしています。疑問解決にお役立てください！<br><font color="red"><b>※１月２３日栗あんまんじゅうを追記しました（12/1更新）</b></font>
+
+                  <a href="storage/files/b431151e038e37e4ca91c0a6ee439cbc.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;１月献立商品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+      
+            </a></p><div><a href="storage/files/b431151e038e37e4ca91c0a6ee439cbc.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;１月献立商品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>こちらをクリック
+        </a></div><a href="storage/files/b431151e038e37e4ca91c0a6ee439cbc.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;１月献立商品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+      </a>
+      </div>
+    </div>
+  </div>
+
+        <div class="col-sm-4 border border-dark mb-1 d-flex align-items-start text-left p-0">
+      <div style="font-size: 13px;">
+      <span id="pickuptitle"><font size="4">１２月献立商品<br>～よくあるお問合せ～</font></span>
+                <div class="text-left">
+        <p>よくあるお問合せをまとめ一覧にしています。疑問解決にお役立てください！<br><font color="red"><b>※１２月７日栗あんまんじゅうを追記しました（11/26更新）</b></font>
+
+                  <a href="storage/files/202512.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;１２月献立商品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+      
+            </a></p><div><a href="storage/files/202512.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;１２月献立商品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>こちらをクリック
+        </a></div><a href="storage/files/202512.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;１２月献立商品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+      </a>
+      </div>
+    </div>
+  </div>
+
+        <div class="col-sm-4 border border-dark mb-1 d-flex align-items-start text-left p-0">
+      <div style="font-size: 13px;">
+      <span id="pickuptitle"><font size="4">令和８年お正月商品・消耗品<br>～よくあるお問合せ～</font></span>
+                <div class="text-left">
+        <p>よくあるお問合せをまとめ一覧にしています。今後関係資料が公開されたり、新たに情報がありましたら追記し更新していく予定です。疑問解決にお役立てください！（やすらぎ献立対象外）
+<br><font color="red"><b>※情報を更新しました（12/15更新）</b></font>
+
+                  <a href="storage/files/5fcea2dd7eacd90c42aca2570809392e.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;令和８年お正月商品・消耗品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+      
+            </a></p><div><a href="storage/files/5fcea2dd7eacd90c42aca2570809392e.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;令和８年お正月商品・消耗品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>こちらをクリック
+        </a></div><a href="storage/files/5fcea2dd7eacd90c42aca2570809392e.pdf" target="_blank" onclick="analytics('ホーム','ピックアップ', '&lt;font size=&quot;4&quot; &gt;令和８年お正月商品・消耗品&lt;br&gt;～よくあるお問合せ～&lt;/font&gt;', 'demo123!')">
+      </a>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+</div>
+</div>
+
+<h2>各種コンテンツ</h2>
+          <div class="bootstrap container-fluid">
+      <div class="row">
+
+
+      <div class="col-auto">
+          <a href="#毎月更新" class="btn-flat-content">毎月更新<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+      </div>
+                                                    
+                                      
+              <div class="col-auto">
+                  <a href="#厨房運営" class="btn-flat-content">厨房運営<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+              </div>
+                          
+                                      
+              <div class="col-auto">
+                  <a href="#栄養管理" class="btn-flat-content">栄養管理<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+              </div>
+                          
+                                      
+              <div class="col-auto">
+                  <a href="#厨房業務" class="btn-flat-content">厨房業務<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+              </div>
+                          
+                                      
+              <div class="col-auto">
+                  <a href="#サービス仕様書" class="btn-flat-content">サービス仕様書<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+              </div>
+                          
+                                      
+              <div class="col-auto">
+                  <a href="#掲示用ポスター・配布用資料" class="btn-flat-content">掲示用ポスター・配布用資料<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+              </div>
+                          
+                                      
+              <div class="col-auto">
+                  <a href="#人材育成支援ツール" class="btn-flat-content">人材育成支援ツール<i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+              </div>
+                          
+                  </div>
+    </div>
+  
+
+<div class="tabContainer">
+  <div id="毎月更新">
+    <a class="btn-flat-content-m3"></a>
+  </div>
+  <div id="naviscroll">
+    <a class="btn-flat-content-m">毎月更新</a>
+  </div>
+
+  <div class="swiper swiperMenu swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode swiper-thumbs">
+    <div class="swiper-wrapper tab" id="swiper-wrapper-56cb62459cfd8e31" aria-live="polite">
+                  <div class="swiper-slide tab__button swiper-slide-active swiper-slide-thumb-active" id="naricommu" role="group" aria-label="1 / 13">
+          <a>25日配信<br><b>献立・商品<br>情報</b></a>
+        </div>
+        <div class="swiper-slide tab__button swiper-slide-next" id="naricommu2" role="group" aria-label="2 / 13">
+          <a>10日配信<br><b>ナリコマ<br>タイムズ</b></a>
+        </div>
+                                      <div class="swiper-slide tab__button" id="bread" role="group" aria-label="3 / 13">
+              <a>25日配信<br><b>手作りパン</b></a>
+            </div>
+                                  <div class="swiper-slide tab__button" id="changeddish" role="group" aria-label="4 / 13">
+          <a>最終金曜日<br>配信<br><b>代替料理<br>消耗品</b></a>
+        </div>
+        <div class="swiper-slide tab__button" id="selection" role="group" aria-label="5 / 13">
+          <a>25日配信<br><b>セレクション<br>禁止食一覧</b></a>
+        </div>
+        <div class="swiper-slide tab__button" id="dayori" role="group" aria-label="6 / 13">
+          <a>25日配信<br><b>献立だより</b></a>
+        </div>
+        <div class="swiper-slide tab__button" id="recipe" role="group" aria-label="7 / 13">
+          <a>10日配信<br><b>調理レシピ<br></b></a>
+        </div>
+        <div class="swiper-slide tab__button" id="catalog" role="group" aria-label="8 / 13">
+          <a><b>カタログ発注</b></a>
+        </div>
+        <div class="swiper-slide tab__button" id="menu" role="group" aria-label="9 / 13">
+          <a><b>お品書き</b><br><b>おすすめ料理<br></b></a>
+        </div>
+        <div class="swiper-slide tab__button" id="calendar" role="group" aria-label="10 / 13">
+          <a><b>カレンダー</b></a>
+        </div>
+      
+                            <div class="swiper-slide tab__button" id="ekiben" role="group" aria-label="11 / 13">
+          <a><b>駅弁･弁当</b></a>
+        </div>
+                            <div class="swiper-slide tab__button" id="himawari" role="group" aria-label="12 / 13">
+          <a><b>ひまわり<br>非常食</b></a>
+        </div>
+                      <div class="swiper-slide tab__button" id="onepoint" role="group" aria-label="13 / 13">
+            <a><b>ワンポイント<br>テクニック</b></a>
+          </div>
+                          </div>
+  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    <div class="swiper-scrollbar"><div class="swiper-scrollbar-drag" style="width: 695.023px; transform: translate3d(0px, 0px, 0px);"></div></div>
+</div>
+
+<div class="swiper swiperMain swiper-initialized swiper-horizontal swiper-pointer-events">
+  <div class="swiper-wrapper" id="swiper-wrapper-653892aa10fe77d98" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+              <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 13" style="width: 960px;">
+        <div class="clearfix">
+                          <b style="float:left">ご利用中の献立：すこやか</b><br>
+            <b>毎月25日に翌々月分を公開</b>
+          
+                                                  <p class="r" style="float: right;"><a href="kondatepage" class="btn-flat-simple" onclick="analytics('ホーム','献立・商品情報','献立・商品情報（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての献立・商品情報</a></p>
+
+          
+            <br><b>公開日：2025/11/25</b>
+                            <!-- 献立情報 -->
+              <div class="image-container" id="imageBox1" onclick="showPDF(this.id,'https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやか献立・商品情報.pdf#zoom=80')">
+                  <img src="images/kondatetTumbnail.png" alt="PDFを開く">
+              </div>
+            <iframe class="pdf-container" id="pdf-container1"></iframe>
+
+          
+                                </div>
+    </div>
+    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 13" style="width: 960px;">
+      <div class="clearfix">
+                <b style="float:left">ご利用中の献立：すこやか</b><br>
+      <b>毎月10日に公開</b>
+      
+                  <p class="r" style="float: right;"><a href="naricommupage" class="btn-flat-simple" onclick="analytics('ホーム','ナリコマタイムズ','ナリコマタイムズ（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全てのナリコマタイムズ</a></p>
+      
+                              <!-- PDF表示 -->
+                        <div class="image-container" id="imageBox2" onclick="showPDF(this.id,'https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかナリコマタイムズ.pdf#zoom=80')">
+                <img src="images/timesTumbnail.png" alt="PDFを開く">
+            </div>
+          <iframe class="pdf-container" id="pdf-container2"></iframe>
+
+        
+      
+      </div>
+    </div>
+
+                      <!-- 手作りパン -->
+    <div class="swiper-slide" role="group" aria-label="3 / 13" style="width: 960px;">
+      <div class="clearfix">
+                <b style="float:left">ご利用中の献立：すこやか</b><br>
+      <b>毎月25日に翌々月分を公開</b><br>
+                                                                  <h3>1月</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月手作りパンのご案内.pdf" target="_blank" onclick="analytics('ホーム','手作りパン','1月　手作りパンのご案内', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>手作りパンのご案内</h4>
+          </a>
+          </div>
+                                          <h3>12月</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月手作りパンのご案内.pdf" target="_blank" onclick="analytics('ホーム','手作りパン','12月　手作りパンのご案内', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>手作りパンのご案内</h4>
+          </a>
+          </div>
+                    </div>
+    </div>
+                    <!-- 代替料理・消耗品 -->
+    <div class="swiper-slide" role="group" aria-label="4 / 13" style="width: 960px;">
+      <div class="clearfix">
+                <div style="display:flex; justify-content:space-between;">
+        <b>
+          ご利用中の献立：すこやか
+          <br>
+          最終金曜日に翌々月分を公開
+          <br>
+        </b>
+      </div>
+                                                                  <h3>補完発注商品カタログ</h3>
+                          
+          <div class="list-compact" style="text-align:center;width: 25% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/202601/completion_order_202601a.pdf" target="_blank" onclick="analytics('ホーム','代替料理・消耗品','補完発注商品カタログ　【202601】御案内', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>【202601】御案内</h4>
+          </a>
+          </div>
+                          
+          <div class="list-compact" style="text-align:center;width: 25% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/202512/completion_order_202512a.pdf" target="_blank" onclick="analytics('ホーム','代替料理・消耗品','補完発注商品カタログ　【202512】御案内', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>【202512】御案内</h4>
+          </a>
+          </div>
+                                          <h3>補完発注商品　価格表</h3>
+                          
+          <div class="list-compact" style="text-align:center;width: 25% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/202601/completion_order_202601b.pdf" target="_blank" onclick="analytics('ホーム','代替料理・消耗品','補完発注商品　価格表　【202601】価格表', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>【202601】価格表</h4>
+          </a>
+          </div>
+                          
+          <div class="list-compact" style="text-align:center;width: 25% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/202512/completion_order_202512b.pdf" target="_blank" onclick="analytics('ホーム','代替料理・消耗品','補完発注商品　価格表　【202512】価格表', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>【202512】価格表</h4>
+          </a>
+          </div>
+          
+      </div>
+    </div>
+    <!-- セレクション・禁食一覧 -->
+    <div class="swiper-slide" role="group" aria-label="5 / 13" style="width: 960px;">
+      <div class="clearfix">
+                <b style="float:left">ご利用中の献立：すこやか</b><br>
+      <b>毎月25日に翌々月分を公開</b><br>
+                                                                  <h3>1月</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかⅠ_C112002料理セレクション_禁止食のご案内.xlsx" target="_blank" onclick="analytics('ホーム','セレクション・禁食一覧','1月　料理セレクション/禁食一覧', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/excel_icon.png" alt="写真の説明"></figure>
+          <h4>料理セレクション/禁食一覧</h4>
+          </a>
+          </div>
+                                          <h3>12月</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかⅠ_C112002料理セレクション_禁止食のご案内.xlsx" target="_blank" onclick="analytics('ホーム','セレクション・禁食一覧','12月　料理セレクション/禁食一覧', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/excel_icon.png" alt="写真の説明"></figure>
+          <h4>料理セレクション/禁食一覧</h4>
+          </a>
+          </div>
+                    </div>
+    </div>
+    <!-- 献立だより -->
+    <div class="swiper-slide" role="group" aria-label="6 / 13" style="width: 960px;">
+      <div class="clearfix">
+                                  <div style="display:flex;">
+            <div style="min-width:230px;">
+              <b style="float:left">
+                ご利用中の献立：すこやか
+                <br>
+                毎月25日に翌々月分を公開
+              </b>
+            </div>
+            <div style="background-color: yellow;">
+                              </div>
+          </div>
+        
+                      <div style="background-color: yellow; margin-bottom: 10px;">
+            <b>
+              「献立だより」は2025年3月献立をもちましてポータルサイトでの公開を終了、<br>
+              「ナリコマシステム＞帳票出力＞献立だより出力」へ移行しました。<br>
+              2025年4月献立だよりはナリコマシステムから出力可能です。
+            </b>
+            <br><br>
+            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/ナリコマシステム帳票アプリ操作マニュアル＜帳票出力編＞.pdf" target="_blank">出力操作方法マニュアル</a><br>
+            <a href="https://youtu.be/ZVjAX_-gF5A" target="_blank">出力操作方法（動画）</a><br>
+            <a href="https://www.narikoma-enterprise.com/portalsite/narikomasigninkondatedayori" target="_blank">ナリコマシステム</a>
+          </div>
+                              </div>
+    </div>
+
+    <!-- 調理レシピ -->
+    <div class="swiper-slide" role="group" aria-label="7 / 13" style="width: 960px;">
+      <div class="clearfix">
+                <b style="float:left">ご利用中の献立：すこやか</b><br>
+      <b>毎月10日に翌月分を公開</b><br>
+                                                                  <h3>1月の調理レシピ</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやか常食(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ　常食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>常食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかミキサー(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ　ミキサー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ミキサー食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかソフト(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ　ソフト食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ソフト食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかゼリー(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ　ゼリー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ゼリー食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかデイ常食(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ　デイ', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>デイ</h4>
+          </a>
+          </div>
+                                          <h3>1月の調理レシピ（A4分割版）</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやか常食(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ（A4分割版）　常食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>常食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかミキサー(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ（A4分割版）　ミキサー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ミキサー食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかソフト(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ（A4分割版）　ソフト食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ソフト食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202601/2026年1月すこやかゼリー(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','1月の調理レシピ（A4分割版）　ゼリー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ゼリー食</h4>
+          </a>
+          </div>
+                                          <h3>12月の調理レシピ</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやか常食(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ　常食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>常食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかミキサー(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ　ミキサー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ミキサー食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかソフト(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ　ソフト食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ソフト食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかゼリー(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ　ゼリー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ゼリー食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかデイ常食(大阪).pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ　デイ', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>デイ</h4>
+          </a>
+          </div>
+                                          <h3>12月の調理レシピ（A4分割版）</h3>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやか常食(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ（A4分割版）　常食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>常食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかミキサー(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ（A4分割版）　ミキサー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ミキサー食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかソフト(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ（A4分割版）　ソフト食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ソフト食</h4>
+          </a>
+          </div>
+                                        <div class="list-compact" style="text-align:center">
+          <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/202512/2025年12月すこやかゼリー(大阪)A4.pdf" target="_blank" onclick="analytics('ホーム','調理レシピ','12月の調理レシピ（A4分割版）　ゼリー食', 'demo123!')">
+          <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+          <h4>ゼリー食</h4>
+          </a>
+          </div>
+                                  </div>
+    </div>
+
+    <!-- カタログ発注 -->
+    <div class="swiper-slide" role="group" aria-label="8 / 13" style="width: 960px;">
+                <b style="float:left">ご利用中の献立：すこやか</b><br>
+      
+      <h3>たのめーる</h3>
+      <div class="list-compact" style="text-align:center;width: 33% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/202504/【202504】オリジナルカテゴリー価格変更.pdf" target="_blank" onclick="analytics('ホーム','カタログ発注','【202504】オリジナルカテゴリー価格変更', 'demo123!')">
+              <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+              <h4>【202504】オリジナルカテゴリー価格変更</h4>
+          </a>
+      </div>
+      <div class="list-compact" style="text-align:center;width: 33% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/202505/【202505】オリジナルカテゴリー価格変更.pdf" target="_blank" onclick="analytics('ホーム','カタログ発注','【202505】オリジナルカテゴリー価格変更', 'demo123!')">
+              <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+              <h4>【202505】オリジナルカテゴリー価格変更</h4>
+        </a>
+      </div>
+      <h3 style="padding-right:unset;">オリエンタルベーカリー<br><span style="color:red;">※地域により販売可能な商品が異なります。発注システムに表示された商品のみが購入可能商品となりますのでご了承ください。</span></h3>
+      <div class="list-compact" style="text-align:center;width: 33% !important;">
+          <a href="https://www.narikoma.co.jp/n/narikoma_system02/file/completion_order/oriental/病院・施設向け商品カタログ20250203-.pdf" target="_blank" onclick="analytics('ホーム','カタログ発注','病院・施設向け商品カタログ20250203', 'demo123!')">
+              <figure><img style="width: 50px;height: 50px" src="images/pdficon_most_large.png" alt="写真の説明"></figure>
+              <h4>病院・施設向け商品カタログ</h4>
+          </a>
+      </div>
+    </div>
+    <!-- お品書き -->
+    <div class="swiper-slide" role="group" aria-label="9 / 13" style="width: 960px;">
+      <span style="float:left;color:red">※お品書き・おすすめ料理は、すこやか献立で作成しています。</span><br>
+      <span style="float:left;color:red">※やすらぎ献立のお品書き・おすすめ料理はありません。</span>
+
+        <p class="r" style="margin-top: 5px"><a href="menupage" class="btn-flat-simple" onclick="analytics('ホーム','お品書き・おすすめ料理','お品書き・おすすめ料理（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全てのお品書き・おすすめ料理紹介</a></p>
+
+        
+        <!-- お品書き -->
+        
+                                <h3>2025年12月</h3>
+                                
+          <table width="100%">
+              <tbody><tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b>12/25【クリスマス】お品書きヨコ版 　おやつあり＊タテ版とは図柄が異なります</b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025横　おやつあり.docx" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_ヨコ版_おやつあり［ワード］', 'demo123!')"><img src="images/page_word.png"> 【普ソミゼ】クリスマス_ヨコ版_おやつあり［ワード］</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025横　おやつあり.pdf" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_ヨコ版_おやつあり≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 【普ソミゼ】クリスマス_ヨコ版_おやつあり≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025横　おやつあり.docx" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_ヨコ版_おやつあり［ワード］', 'demo123!')"><img src="images/page_word.png"> 2面【普ソミゼ】クリスマス_ヨコ版_おやつあり［ワード］</a>
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025横　おやつあり.pdf" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_ヨコ版_おやつあり≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 2面【普ソミゼ】クリスマス_ヨコ版_おやつあり≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+          </tbody></table>
+        
+            
+          <table width="100%">
+              <tbody><tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b>12/25【クリスマス】お品書きヨコ版 　昼食のみ＊タテ版とは図柄が異なります</b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025横　おやつなし.docx" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_ヨコ版_昼食のみ［ワード］', 'demo123!')"><img src="images/page_word.png"> 【普ソミゼ】クリスマス_ヨコ版_昼食のみ［ワード］</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025横　おやつなし.pdf" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_ヨコ版_昼食のみ≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 【普ソミゼ】クリスマス_ヨコ版_昼食のみ≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025横　おやつなし.docx" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_ヨコ版_昼食のみ［ワード］', 'demo123!')"><img src="images/page_word.png"> 2面【普ソミゼ】クリスマス_ヨコ版_昼食のみ［ワード］</a>
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025横　おやつなし.pdf" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_ヨコ版_昼食のみ≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 2面【普ソミゼ】クリスマス_ヨコ版_昼食のみ≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+          </tbody></table>
+        
+            
+          <table width="100%">
+              <tbody><tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b>12/25【クリスマス】お品書きタテ版 　おやつあり＊ヨコ版とは図柄が異なります</b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025たて　おやつあり.docx" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_タテ版_おやつあり［ワード］', 'demo123!')"><img src="images/page_word.png"> 【普ソミゼ】クリスマス_タテ版_おやつあり［ワード］</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025たて　おやつあり.pdf" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_タテ版_おやつあり≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 【普ソミゼ】クリスマス_タテ版_おやつあり≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025たて　おやつあり.docx" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_タテ版_おやつあり［ワード］', 'demo123!')"><img src="images/page_word.png"> 2面【普ソミゼ】クリスマス_タテ版_おやつあり［ワード］</a>
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025たて　おやつあり.pdf" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_タテ版_おやつあり≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 2面【普ソミゼ】クリスマス_タテ版_おやつあり≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+          </tbody></table>
+        
+            
+          <table width="100%">
+              <tbody><tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b>12/25【クリスマス】お品書きタテ版 　昼食のみ＊ヨコ版とは図柄が異なります</b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025たて　おやつなし.docx" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_タテ版_昼食のみ［ワード］', 'demo123!')"><img src="images/page_word.png"> 【普ソミゼ】クリスマス_タテ版_昼食のみ［ワード］</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/【普ソミゼ】クリスマス2025たて　おやつなし.pdf" target="_blank" onclick="analytics('ホーム','お品書き','【普ソミゼ】クリスマス_タテ版_昼食のみ≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 【普ソミゼ】クリスマス_タテ版_昼食のみ≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025たて　おやつなし.docx" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_タテ版_昼食のみ［ワード］', 'demo123!')"><img src="images/page_word.png"> 2面【普ソミゼ】クリスマス_タテ版_昼食のみ［ワード］</a>
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/2面【普ソミゼ】クリスマス2025たて　おやつなし.pdf" target="_blank" onclick="analytics('ホーム','お品書き','2面【普ソミゼ】クリスマス_タテ版_昼食のみ≪PDF&gt;', 'demo123!')"><img src="images/pdficon_large.png"> 2面【普ソミゼ】クリスマス_タテ版_昼食のみ≪PDF&gt;</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+          </tbody></table>
+        
+            
+          <table width="100%">
+              <tbody><tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b>12/25【クリスマス】ランチョンマット＊ご使用の際食器が滑る可能性があります。</b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/クリスマスランチョンマット①2025.pdf" target="_blank" onclick="analytics('ホーム','お品書き','ランチョンマット①→お品書きヨコ版とおそろい', 'demo123!')"><img src="images/pdficon_large.png"> ランチョンマット①→お品書きヨコ版とおそろい</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/クリスマスランチョンマット②2025.pdf" target="_blank" onclick="analytics('ホーム','お品書き','ランチョンマット②→お品書きタテ版と同じサンタさん', 'demo123!')"><img src="images/pdficon_large.png"> ランチョンマット②→お品書きタテ版と同じサンタさん</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/クリスマスランチョンマット③2025.pdf" target="_blank" onclick="analytics('ホーム','お品書き','ランチョンマット③→ポインセチアとプレゼント柄', 'demo123!')"><img src="images/pdficon_large.png"> ランチョンマット③→ポインセチアとプレゼント柄</a>
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                    　<a href="storage/files/クリスマスランチョンマット➃2025.pdf" target="_blank" onclick="analytics('ホーム','お品書き','ランチョンマット➃→赤色の枠と雪の模様', 'demo123!')"><img src="images/pdficon_large.png"> ランチョンマット➃→赤色の枠と雪の模様</a>
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+              <tr>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;"><b></b></td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                                  </td>
+              </tr>
+          </tbody></table>
+                </div>
+    <div class="swiper-slide" role="group" aria-label="10 / 13" style="width: 960px;">
+      <div class="clearfix">
+        <img style="width: 100%;" src="images/calendar_title.png" alt="" class="img">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;showTitle=0&amp;showNav=1&amp;showPrint=1&amp;showDate=1&amp;showTabs=1&amp;showCalendars=1&amp;showTz=0&amp;src=YTQyNzA0YWE4MDVlMDNmMDNlMTlhZjdkMjUxOTE4NWQ4ZWE4ZGI0NmE5ZjU4YTIyZjZhYWU3MGI5YzQyMTBhZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=NDcwZjYyMDQ5ZjdjNThhOTYxMTAxNzg5ODM5MmQwMGY5MjI1ZGNhNTZlZDc0MmU5N2Y5YmY2N2FlODhmOGUyY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=MGFlYTBjMjEwYmFhOGVjMWFjNTdmZDdkZGY3ODQzYTg0MDczY2YwMzdlNTQxOTZiNzYxMjhjMDVmYTllZGMwNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=NjBlN2I3YzI5OTVlYzhjMzY5Y2MzZTk3M2I5NzNkMTk0NTNlYjZmZGUzZThjYzYzYWQ4NjE1MjJkMTIwYTMwOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=YzQ0NjlkZGZhNDE0YzMwZGZjOWE5MTg2ZDgwOWExOTM1MGIxMDVkZDE0OGY0ZWZlNDc1ZGZlNzgzMGY2ZmYxNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=YjNmNzk3OTZhMzIwZGM3Y2IwMTgzODMxYjhkZmFkMGRhNmM0MjM4NWM5MWM1MDAzNzJhZWM0OTQ4ZDEyYTg0MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=MzdjYmExNGRjNTU0MTJkNDQ0NGI3YTYwZjMzYmI5YzY2ZTNmMGM3YjJkYzdlYTI4ODgyMzc4YzE3ZDEzOTlhNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23E4C441&amp;color=%23F09300&amp;color=%23D81B60&amp;color=%23D50000&amp;color=%23A79B8E&amp;color=%234285F4&amp;color=%230B8043&amp;color=%23616161" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+
+  
+            <div class="swiper-slide" role="group" aria-label="11 / 13" style="width: 960px;">
+                    <p class="r" style="margin-top: 5px"><a href="ekibenpage" class="btn-flat-simple" onclick="analytics('ホーム','駅弁','駅弁（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての駅弁</a></p>
+        
+            <!-- 駅弁 -->
+                                                            
+                                  <h3>駅弁</h3>
+                                                      
+        <table>
+            <tbody><tr>
+                                                      <td style="text-align: left;width:10%;border:none;box-shadow: none;"><b>2026年</b></td>
+                                  
+            <td style="text-align: left;width:10%;border:none;box-shadow: none;"><b>02月</b></td>
+            <td style="text-align: left;width:20%;border:none;box-shadow: none;">
+                                　<a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/bentou/202602/202602_特製牛めし弁当(秋田県秋田駅).pdf" target="_blank" onclick="analytics('ホーム','駅弁','特製牛めし弁当(秋田県秋田駅)', 'demo123!')"><img src="images/pdficon_large.png"> 特製牛めし弁当(秋田県秋田駅)</a>
+                              </td>
+            <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                                　<a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/bentou/202602/写真.docx" target="_blank" onclick="analytics('ホーム','駅弁','写真', 'demo123!')"><img src="images/page_word.png"> 写真</a>
+                              </td>
+            <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                              </td>
+            <td style="text-align: left;width:20%;border:none;box-shadow: none;">
+                              </td>
+            </tr>
+        </tbody></table>
+            
+              
+        <table>
+            <tbody><tr>
+                                  <td style="text-align: left;width:10%;border:none;box-shadow: none;"></td>
+              
+            <td style="text-align: left;width:10%;border:none;box-shadow: none;"><b>01月</b></td>
+            <td style="text-align: left;width:20%;border:none;box-shadow: none;">
+                                　<a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/bentou/202601/202601_鮭はらこ弁当(新潟県新潟駅).pdf" target="_blank" onclick="analytics('ホーム','駅弁','鮭はらこ弁当(新潟県新潟駅)', 'demo123!')"><img src="images/pdficon_large.png"> 鮭はらこ弁当(新潟県新潟駅)</a>
+                              </td>
+            <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                                　<a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/bentou/202601/写真.docx" target="_blank" onclick="analytics('ホーム','駅弁','写真', 'demo123!')"><img src="images/page_word.png"> 写真</a>
+                              </td>
+            <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                              </td>
+            <td style="text-align: left;width:20%;border:none;box-shadow: none;">
+                              </td>
+            </tr>
+        </tbody></table>
+            
+              
+        <table>
+            <tbody><tr>
+                                                      <td style="text-align: left;width:10%;border:none;box-shadow: none;"><b>2025年</b></td>
+              
+            <td style="text-align: left;width:10%;border:none;box-shadow: none;"><b>12月</b></td>
+            <td style="text-align: left;width:20%;border:none;box-shadow: none;">
+                                　<a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/bentou/202512/202512_かしわめし(福岡県折尾駅).pdf" target="_blank" onclick="analytics('ホーム','駅弁','かしわめし(福岡県折尾駅)', 'demo123!')"><img src="images/pdficon_large.png"> かしわめし(福岡県折尾駅)</a>
+                              </td>
+            <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                                　<a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/bentou/202512/写真.docx" target="_blank" onclick="analytics('ホーム','駅弁','写真', 'demo123!')"><img src="images/page_word.png"> 写真</a>
+                              </td>
+            <td style="text-align: left;width:25%;border:none;box-shadow: none;">
+                              </td>
+            <td style="text-align: left;width:20%;border:none;box-shadow: none;">
+                              </td>
+            </tr>
+        </tbody></table>
+                      </div>
+                  <div class="swiper-slide" role="group" aria-label="12 / 13" style="width: 960px;">
+                          <table class="ta2" style="font-size: 1.2em;margin-top: 20px;">
+              <tbody>
+
+              <tr>
+                <th class="tamidashi" colspan="2" style="color:black;width: 100%;">
+                <strong>ひまわり非常食</strong>
+                </th>
+              </tr>
+
+                          <tr>
+                <td style="width: 5%">
+                <b>1</b>
+                </td>
+                <td style="text-align: left;width: 100%">　
+                <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/非常食ひまわり非常食カタログ.pdf" target="_blank" onclick="analytics('ホーム','ひまわり非常食','https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/非常食ひまわり非常食カタログ.pdf', 'demo123!')">ひまわり非常食カタログ</a>
+                </td>
+              </tr>
+                                      <tr>
+                <td style="width: 5%">
+                <b>2</b>
+                </td>
+                <td style="text-align: left;width: 100%">　
+                <a href="https://docs.google.com/spreadsheets/d/1gRbW8k-BtUGK61QqrP7Dw3BGYcOegiKVehcWVnxTSQA/edit?usp=sharing" target="_blank" onclick="analytics('ホーム','ひまわり非常食','https://docs.google.com/spreadsheets/d/1gRbW8k-BtUGK61QqrP7Dw3BGYcOegiKVehcWVnxTSQA/edit?usp=sharing', 'demo123!')">【普通食】原材料・栄養価・アレルゲン情報※スプレッドシート</a>
+                </td>
+              </tr>
+                                      <tr>
+                <td style="width: 5%">
+                <b>3</b>
+                </td>
+                <td style="text-align: left;width: 100%">　
+                <a href="https://docs.google.com/spreadsheets/d/1prMjxPiaT6J2SXK-57m9bPTYiLosOhbjzxJyoEOWjBk/edit?usp=sharing" target="_blank" onclick="analytics('ホーム','ひまわり非常食','https://docs.google.com/spreadsheets/d/1prMjxPiaT6J2SXK-57m9bPTYiLosOhbjzxJyoEOWjBk/edit?usp=sharing', 'demo123!')">【ソフト食】原材料・栄養価・アレルゲン情報</a>
+                </td>
+              </tr>
+                                      <tr>
+                <td style="width: 5%">
+                <b>4</b>
+                </td>
+                <td style="text-align: left;width: 100%">　
+                <a href="https://docs.google.com/spreadsheets/d/1PfQAolDhgQl9s2Umlo0utzjbKTBS0yPfvOgu-9LtZ2g/edit?usp=sharing" target="_blank" onclick="analytics('ホーム','ひまわり非常食','https://docs.google.com/spreadsheets/d/1PfQAolDhgQl9s2Umlo0utzjbKTBS0yPfvOgu-9LtZ2g/edit?usp=sharing', 'demo123!')">【ミキサー食】原材料・栄養価・アレルゲン情報</a>
+                </td>
+              </tr>
+                                      <tr>
+                <td style="width: 5%">
+                <b>5</b>
+                </td>
+                <td style="text-align: left;width: 100%">　
+                <a href="https://docs.google.com/spreadsheets/d/177GPzFOSqIeZoVzjoLpOBfbsFXkMx9zqcWlWiXweTjo/edit?usp=sharing" target="_blank" onclick="analytics('ホーム','ひまわり非常食','https://docs.google.com/spreadsheets/d/177GPzFOSqIeZoVzjoLpOBfbsFXkMx9zqcWlWiXweTjo/edit?usp=sharing', 'demo123!')">【ゼリー食】原材料・栄養価・アレルゲン情報</a>
+                </td>
+              </tr>
+                                    </tbody>
+          </table>
+      </div>
+
+  <div class="swiper-slide" role="group" aria-label="13 / 13" style="width: 960px;">
+            <p class="r" style="margin-top: 5px"><a href="onepointpage" class="btn-flat-simple" onclick="analytics('ホーム','ワンポイントテクニック','ワンポイントテクニック（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全てのワンポイントテクニック</a></p>
+    
+    <table>
+      <tbody><tr>
+        <th>更新日</th>
+        <th>分類</th>
+        <th>内容</th>
+        <th>映像</th>
+        <th>バックナンバー</th>
+      </tr>
+        <!-- ワンポイント -->
+                    <tr>
+        <td>2020/08/05</td>
+        <td align="center">盛り付け</td>
+        <td>
+          <div align="center">
+            <a href="http://www.narikoma.co.jp/n/narikoma_system02/file/public_relations/ソフト食・ゼリー食のカット方法(添え編)_ver.1(2020.8).pdf" target="_blank" onclick="analytics('ホーム','ワンポイントテクニック','ソフト食・ゼリー食のカット方法（添え編）', 'demo123!')">ソフト食・ゼリー食のカット方法（添え編）</a>
+          </div>
+        </td>
+
+        <td align="center">
+                    -
+                    </td>
+        <td><div align="center">
+                    -
+                    </div></td>
+        </tr>
+                    <tr>
+        <td>2020/06/23</td>
+        <td align="center">調理</td>
+        <td>
+          <div align="center">
+            <a href="http://www.narikoma.co.jp/n/narikoma_system02/file/public_relations/スイカを均等に切り分ける方法（大玉スイカ）_Ver.1(2020.6).pdf" target="_blank" onclick="analytics('ホーム','ワンポイントテクニック','スイカを均等に切り分ける方法(大玉スイカ)', 'demo123!')">スイカを均等に切り分ける方法(大玉スイカ)</a>
+          </div>
+        </td>
+
+        <td align="center">
+                    -
+                    </td>
+        <td><div align="center">
+                    -
+                    </div></td>
+        </tr>
+                    <tr>
+        <td>2020/06/23</td>
+        <td align="center">調理</td>
+        <td>
+          <div align="center">
+            <a href="http://www.narikoma.co.jp/n/narikoma_system02/file/public_relations/スイカを均等に切り分ける方法（小玉スイカ）_Ver.2(2020.6).pdf" target="_blank" onclick="analytics('ホーム','ワンポイントテクニック','スイカを均等に切り分ける方法(小玉スイカ)', 'demo123!')">スイカを均等に切り分ける方法(小玉スイカ)</a>
+          </div>
+        </td>
+
+        <td align="center">
+                    -
+                    </td>
+        <td><div align="center">
+                    -
+                    </div></td>
+        </tr>
+                    <tr>
+        <td>2020/04/27</td>
+        <td align="center">書類</td>
+        <td>
+          <div align="center">
+            <a href="http://www.narikoma.co.jp/n/narikoma_system02/archive/file/こんなにあります！ナリコマの行事食（10～3月版）.pdf" target="_blank" onclick="analytics('ホーム','ワンポイントテクニック','こんなにあります！ナリコマの行事食（10～3月版）', 'demo123!')">こんなにあります！ナリコマの行事食（10～3月版）</a>
+          </div>
+        </td>
+
+        <td align="center">
+                    -
+                    </td>
+        <td><div align="center">
+                    -
+                    </div></td>
+        </tr>
+                    <tr>
+        <td>2020/04/27</td>
+        <td align="center">書類</td>
+        <td>
+          <div align="center">
+            <a href="http://www.narikoma.co.jp/n/narikoma_system02/archive/file/こんなにあります！ナリコマの行事食（4～9月版）.pdf" target="_blank" onclick="analytics('ホーム','ワンポイントテクニック','こんなにあります！ナリコマの行事食（4～9月版）', 'demo123!')">こんなにあります！ナリコマの行事食（4～9月版）</a>
+          </div>
+        </td>
+
+        <td align="center">
+                    -
+                    </td>
+        <td><div align="center">
+                    -
+                    </div></td>
+        </tr>
+                    <tr>
+        <td>2019/10/04</td>
+        <td align="center">調理</td>
+        <td>
+          <div align="center">
+            <a href="http://www.narikoma.co.jp/n/narikoma_system02/file/public_relations/麻婆豆腐の作り方ワンポイント_Ver.1(2019.10).pdf" target="_blank" onclick="analytics('ホーム','ワンポイントテクニック','麻婆豆腐の豆腐の煮崩れない作り方', 'demo123!')">麻婆豆腐の豆腐の煮崩れない作り方</a>
+          </div>
+        </td>
+
+        <td align="center">
+                    -
+                    </td>
+        <td><div align="center">
+                    -
+                    </div></td>
+        </tr>
+                </tbody></table>
+  </div>
+      </div>
+<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+
+
+    <div>
+          <div class="contents__content">
+                                                                          
+                                                      
+                <div id="厨房運営">
+                  <a class="btn-flat-content-m3"></a>
+
+                </div>
+
+                <div>
+                  <a class="btn-flat-content-m">厨房運営</a>
+                </div>
+
+                <p class="r" style="margin-top: 5px"><a href="manualpageall#cat18" class="btn-flat-simple" onclick="analytics('ホーム','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての厨房運営</a></p>
+                    <table>
+                      <thead>
+                      <tr>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;"></th>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;border-right:none">最終更新日</th>
+                      </tr>
+                      </thead>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://docs.google.com/spreadsheets/d/177GPzFOSqIeZoVzjoLpOBfbsFXkMx9zqcWlWiXweTjo/edit#gid=0" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【ゼリー食】原材料・栄養価・アレルゲン情報', 'demo123!')">
+                              <b>【ゼリー食】原材料・栄養価・アレルゲン情報</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/12/01
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://docs.google.com/spreadsheets/d/1prMjxPiaT6J2SXK-57m9bPTYiLosOhbjzxJyoEOWjBk/edit#gid=0" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【ソフト食】原材料・栄養価・アレルゲン情報', 'demo123!')">
+                              <b>【ソフト食】原材料・栄養価・アレルゲン情報</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/12/01
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://docs.google.com/spreadsheets/d/1PfQAolDhgQl9s2Umlo0utzjbKTBS0yPfvOgu-9LtZ2g/edit#gid=0" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【ミキサー食】原材料・栄養価・アレルゲン情報', 'demo123!')">
+                              <b>【ミキサー食】原材料・栄養価・アレルゲン情報</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/12/01
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://docs.google.com/spreadsheets/d/1gRbW8k-BtUGK61QqrP7Dw3BGYcOegiKVehcWVnxTSQA/edit#gid=0" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【普通食】原材料・栄養価・アレルゲン情報', 'demo123!')">
+                              <b>【普通食】原材料・栄養価・アレルゲン情報</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/12/01
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/ナリコマポイントの確認と利用方法.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', 'ナリコマポイントの確認と利用方法', 'demo123!')">
+                              <b>ナリコマポイントの確認と利用方法</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/10/02
+                          </td>
+                        </tr>
+                       </tbody>
+                                          </table>
+                                  
+                                                      
+                <div id="栄養管理">
+                  <a class="btn-flat-content-m3"></a>
+
+                </div>
+
+                <div>
+                  <a class="btn-flat-content-m">栄養管理</a>
+                </div>
+
+                <p class="r" style="margin-top: 5px"><a href="manualpageall#cat20" class="btn-flat-simple" onclick="analytics('ホーム','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての栄養管理</a></p>
+                    <table>
+                      <thead>
+                      <tr>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;"></th>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;border-right:none">最終更新日</th>
+                      </tr>
+                      </thead>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/帳票作成用コード使用の手引き.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '帳票作成用コード使用の手引き', 'demo123!')">
+                              <b>帳票作成用コード使用の手引き</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/11/27
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/ナリコマシステム帳票アプリ操作マニュアル＜帳票出力編＞.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', 'ナリコマシステム帳票アプリ操作マニュアル＜帳票出力編＞', 'demo123!')">
+                              <b>ナリコマシステム帳票アプリ操作マニュアル＜帳票出力編＞</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/11/06
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/2025年すこやか献立（おやつなし）食糧構成.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '2025年すこやか献立(おやつなし)食糧構成', 'demo123!')">
+                              <b>2025年すこやか献立(おやつなし)食糧構成</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/05/30
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/2025年献立給与栄養目標量について.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '2025年献立給与栄養目標量について', 'demo123!')">
+                              <b>2025年献立給与栄養目標量について</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/05/30
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/帳票作成用コード使用の手引き（別冊）.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '帳票作成用コード使用の手引き（別冊）', 'demo123!')">
+                              <b>帳票作成用コード使用の手引き（別冊）</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/03/11
+                          </td>
+                        </tr>
+                       </tbody>
+                                          </table>
+                                  
+                                                      
+                <div id="厨房業務">
+                  <a class="btn-flat-content-m3"></a>
+
+                </div>
+
+                <div>
+                  <a class="btn-flat-content-m">厨房業務</a>
+                </div>
+
+                <p class="r" style="margin-top: 5px"><a href="manualpageall#cat5" class="btn-flat-simple" onclick="analytics('ホーム','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての厨房業務</a></p>
+                    <table>
+                      <thead>
+                      <tr>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;"></th>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;border-right:none">最終更新日</th>
+                      </tr>
+                      </thead>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/代替食対応マニュアル.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '代替食対応マニュアル', 'demo123!')">
+                              <b>代替食対応マニュアル</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/11/19
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/ナリコマシステム操作マニュアル＜発注編＞.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', 'ナリコマシステム操作マニュアル＜発注編＞', 'demo123!')">
+                              <b>ナリコマシステム操作マニュアル＜発注編＞</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/11/12
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/まとめ検品(コンテナ検品)操作マニュアル.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', 'まとめ検品(コンテナ検品)操作マニュアル', 'demo123!')">
+                              <b>まとめ検品(コンテナ検品)操作マニュアル</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/09/11
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/複数台検品のやり方動画.mp4" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【動画】複数台検品マニュアル', 'demo123!')">
+                              <b>【動画】複数台検品マニュアル</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/08/11
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/検品システム操作マニュアル.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '検品システム操作マニュアル', 'demo123!')">
+                              <b>検品システム操作マニュアル</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/08/11
+                          </td>
+                        </tr>
+                       </tbody>
+                                          </table>
+                                  
+                                                      
+                <div id="サービス仕様書">
+                  <a class="btn-flat-content-m3"></a>
+
+                </div>
+
+                <div>
+                  <a class="btn-flat-content-m">サービス仕様書</a>
+                </div>
+
+                <p class="r" style="margin-top: 5px"><a href="manualpageall#cat17" class="btn-flat-simple" onclick="analytics('ホーム','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全てのサービス仕様書</a></p>
+                    <table>
+                      <thead>
+                      <tr>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;"></th>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;border-right:none">最終更新日</th>
+                      </tr>
+                      </thead>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/コンテナ検品サービス仕様書.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', 'まとめ検品(コンテナ検品)サービス仕様書', 'demo123!')">
+                              <b>まとめ検品(コンテナ検品)サービス仕様書</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/09/03
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/療養食食材発注サービス仕様書_Ver.1(2022.11).pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '療養食食材発注　サービス仕様書', 'demo123!')">
+                              <b>療養食食材発注　サービス仕様書</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/06/24
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/%E6%96%B0NEWS/portalContent/manual/サービス仕様書（病院用指示書仕様書）.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【すこやか】病院用指示書　サービス仕様書', 'demo123!')">
+                              <b>【すこやか】病院用指示書　サービス仕様書</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/05/30
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/サービス仕様書（すこやかドリーム療養食指示書）.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【すこやか・ドリーム】療養食指示書　サービス仕様書', 'demo123!')">
+                              <b>【すこやか・ドリーム】療養食指示書　サービス仕様書</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/05/30
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/サービス仕様書（禁止食）.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '禁止食オプション（申込制）サービス仕様書', 'demo123!')">
+                              <b>禁止食オプション（申込制）サービス仕様書</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2024/08/01
+                          </td>
+                        </tr>
+                       </tbody>
+                                          </table>
+                                  
+                                                      
+                <div id="掲示用ポスター・配布用資料">
+                  <a class="btn-flat-content-m3"></a>
+
+                </div>
+
+                <div>
+                  <a class="btn-flat-content-m">掲示用ポスター・配布用資料</a>
+                </div>
+
+                <p class="r" style="margin-top: 5px"><a href="manualpageall#cat19" class="btn-flat-simple" onclick="analytics('ホーム','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての掲示用ポスター・配布用資料</a></p>
+                    <table>
+                      <thead>
+                      <tr>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;"></th>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;border-right:none">最終更新日</th>
+                      </tr>
+                      </thead>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/「安全衛生ファイル」作成パッケージ_202508.xlsx" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '安全衛生ファイル作成パッケージ', 'demo123!')">
+                              <b>安全衛生ファイル作成パッケージ</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/08/22
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/初めに【ポスター】検品から収納までの流れ.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【ポスター】検品から収納までの流れ', 'demo123!')">
+                              <b>【ポスター】検品から収納までの流れ</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/07/30
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/ハンドブック使い方・作り方⑧.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', 'ハンドブックの使い方・作り方ガイド', 'demo123!')">
+                              <b>ハンドブックの使い方・作り方ガイド</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/04/07
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/食品衛生ハンドブック⑥.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '食品衛生ハンドブック', 'demo123!')">
+                              <b>食品衛生ハンドブック</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/04/07
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/250404_QR挿入_厨房ハンドブック⑦.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '厨房ハンドブック', 'demo123!')">
+                              <b>厨房ハンドブック</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/04/07
+                          </td>
+                        </tr>
+                       </tbody>
+                                          </table>
+                                  
+                                                      
+                <div id="人材育成支援ツール">
+                  <a class="btn-flat-content-m3"></a>
+
+                </div>
+
+                <div>
+                  <a class="btn-flat-content-m">人材育成支援ツール</a>
+                </div>
+
+                <p class="r" style="margin-top: 5px"><a href="manualpageall#cat25" class="btn-flat-simple" onclick="analytics('ホーム','マニュアル','マニュアル（アーカイブ）', 'demo123!')"><i class="fa fa-angle-double-right" aria-hidden="true"></i>全ての人材育成支援ツール</a></p>
+                    <table>
+                      <thead>
+                      <tr>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;"></th>
+                        <th class="thTitle" style="text-align: left;width:15%;box-shadow: none;border-right:none">最終更新日</th>
+                      </tr>
+                      </thead>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/初めに【ポスター】検品から収納までの流れ.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '【ポスター】検品から収納までの流れ', 'demo123!')">
+                              <b>【ポスター】検品から収納までの流れ</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/07/30
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/中心温度の測り方_202507.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '中心温度の測り方', 'demo123!')">
+                              <b>中心温度の測り方</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2025/07/07
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/初めてナリコマのお食事を提供するスタッフへ.pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '初めてナリコマのお食事を提供するスタッフへ', 'demo123!')">
+                              <b>初めてナリコマのお食事を提供するスタッフへ</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2024/04/09
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/盛り付け方法　盛り付け（汁物）_Ver.2(2023.2).pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '盛り付け（汁物）', 'demo123!')">
+                              <b>盛り付け（汁物）</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2023/02/14
+                          </td>
+                        </tr>
+                       </tbody>
+                                             <tbody>
+                         <tr>
+                          <td style="text-align: left;width:10%;border:none;box-shadow: none;">
+                            <a href="https://www.narikoma.co.jp/n/buppan/新NEWS/portalContent/manual/衛生管理　厨房の入室フロー_Ver.2(2023.2).pdf" target="_blank" onclick="analytics('マニュアル', 'マニュアル', '厨房の入室フロー', 'demo123!')">
+                              <b>厨房の入室フロー</b>
+                            </a>
+                          </td>
+                          <td style="text-align: left;width:15%;border:none;box-shadow: none;">
+                            2023/02/14
+                          </td>
+                        </tr>
+                       </tbody>
+                                          </table>
+                                  
+            
+
+
+          </div>
+
+
+    </div>
+
+    </section>
+</div>
+
+
+<!--/#main-->
+
+<!-- ポップアップ表示 -->
+<div id="faq_csv_modal_window">
+<script>
+let modals = [];
+let currentModal = 0;
+let foodModalFlg = 0;
+let foodModal;
+$(function() {
+// モーダルウィンドウを出現させるクリックイベント
+$(document).ready(function() {
+    modals = document.querySelectorAll('.modal');
+    foodModal = document.querySelector('#modal_open');
+
+// 非常食モーダルがある場合
+    if (foodModal) {
+      foodModalFlg = 1;
+    }
+
+    // モーダルが存在しない場合は何もしない
+    if (modals.length === 0 && foodModalFlg === 0) return;
+
+    // オーバーレイが存在する場合は処理しない
+    if ($("#modal-overlay")[0]) return false;
+
+    // オーバーレイを出現させる
+    $("body").append('<div id="modal-overlay"></div>');
+    $("#modal-overlay").fadeIn("slow");
+
+    // コンテンツをセンタリングする
+    centeringModalSyncer();
+
+    // モーダルを最初に表示する
+    showCurrentModal();
+});
+
+// リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
+$(window).resize(centeringModalSyncer);
+
+// センタリングを実行する関数
+function centeringModalSyncer() {
+    var w = $(window).width();
+    var h = $(window).height();
+    var cw = $("#modal-content").outerWidth();
+    var ch = $("#modal-content").outerHeight();
+    $("#modal-content").css({"left": ((w - cw) / 2) + "px", "top": ((h - ch) / 2) + "px"});
+}
+
+// 現在のモーダルを表示する関数
+function showCurrentModal() {
+   // すべてのモーダルを管理
+    if (currentModal < modals.length) {
+      // お知らせのモーダルがなくなるまで表示し続ける
+        $("#modal-content").html($(modals[currentModal]).html());
+    } else if (foodModalFlg === 1) {
+        // 最後に「非常食賞味期限のお知らせ」モーダルを表示
+        $("#modal-content").html($(foodModal).html());
+        foodModalFlg = 0;
+    }
+    $("#modal-content").fadeIn("slow");
+
+    // モーダルを閉じるイベントリスナーを設定
+    $("#modal-close, #food-modal-close").off('click').on('click', function() {
+        outCurrentModal();
+    });
+}
+
+// 現在のモーダルを閉じる関数
+function outCurrentModal() {
+    $("#modal-content").fadeOut("slow", function() {
+  // お知らせの既読処理
+      updataPopupNonDisp($(modals[currentModal]));
+
+  // 次に表示するモーダルがあるか判断
+        if (++currentModal < modals.length || foodModalFlg === 1) {
+            showCurrentModal();
+        } else {
+            $("#modal-content, #modal-overlay").fadeOut("slow", function() {
+                $('#modal-overlay').remove();
+            });
+        }
+    });
+}
+
+// お知らせ既読管理テーブルに登録する関数
+function updataPopupNonDisp(modal) {
+    // #modal-content内のチェックボックスの状態を取得
+    const isPopupDispChecked = $('#modal-content').find('[name="popupDispFlg"]').is(':checked');
+
+    if (isPopupDispChecked === true) {
+      const notifId = $(modal).find('[name="NOTIF_ID"]').val() || null;
+        const infoId = $(modal).find('[name="INFO_ID"]').val() || null;
+        const infoDiv = $(modal).find('[name="INFO_DIV"]').val() || null;
+
+        $.ajax({
+            url: 'https://www.narikoma-enterprise.com/portalsite/check-popup-news-read', // ルートを指定
+            type: 'POST', // メソッドの種類
+            data: {
+                NOTIF_ID: notifId,
+                INFO_ID: infoId,
+                INFO_DIV: infoDiv,
+                _token: '1Y3lpJ5SLnGjEW4vQ2qe8aIl6QaaQuh67xPgr3oR' // CSRFトークンを追加
+            },
+            success: function(response) {
+                // リクエスト成功時の処理
+                console.log('Success:', response);
+            },
+            error: function(xhr, status, error) {
+                // エラー発生時の処理
+                console.error('Error:', error);
+            }
+        });
+    } else if($('[id="food-nodisp"]')){
+      let expiration_flag = 1;
+      if($('[id="food-nodisp"]').prop('checked')){
+        expiration_flag = 2;
+      }
+
+      $.ajax({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: 'expiration-emaemagency-food/insertOrUpdate',
+        type: 'POST',
+        data: {'expiration_flag': expiration_flag,},
+      });
+    }
+}
+});
+
+</script>
+
+<style>
+#modal-content {
+width: 50% ;
+margin: 0 ;
+padding: 10px 20px ;
+border: 2px solid #aaa ;
+background: #fff ;
+position: fixed ;
+display: none ;
+z-index: 2 ;
+}
+
+#modal-overlay {
+z-index: 1 ;
+display: none ;
+position: fixed ;
+top: 0 ;
+left: 0 ;
+width: 100% ;
+height: 120% ;
+background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.button-link {
+color: #00f ;
+text-decoration: underline ;
+}
+
+.button-link:hover {
+cursor: pointer ;
+color: #f00 ;
+}
+</style>    </div>
+
+<!--メニュー開閉ボタン-->
+
+<div id="menubar_hdr" class="close"></div>
+<script>(function(){
+var w=window,d=document;
+var s="https://app.chatplus.jp/cp.js";
+d["__cp_d"]="https://app.chatplus.jp";
+d["__cp_c"]="df902aae_2"
+d["__cp_p"]={
+"chatCompanyName": "デモユーザ",
+"chatTel": "00000"
+}
+
+;
+var a=d.createElement("script"), m=d.getElementsByTagName("script")[0];
+a.async=true,a.src=s,m.parentNode.insertBefore(a,m);})();</script>
+
+<script>
+$(document).ready(function(){
+analytics('ログイン','ログイン','ログイン', 'demo123!');
+});
+
+
+</script>
+
+
+<script>
+
+function showPDF(id,pdfUrl) {
+let target = document.getElementById(id);
+target.style.display = 'none';
+// iframeを表示し、PDFを読み込む
+// 次の要素がpdf
+pdfFrame = target.nextElementSibling;
+pdfFrame.src = pdfUrl;
+pdfFrame.style.display = 'block';
+}
+
+$(function() {
+// ログイン時URLにアンカーリンクがあれば、クエリパラメータとして渡ってくる
+var urlparam = location.search;
+if (urlparam != "") {
+    //クエリパラメータをアンカーリンクに変更する
+  urlparam = urlparam.replace(/\?hash=%23/g, '#');
+  //縦スクロールした後に横スクロール
+  const element = document.getElementById('naviscroll');
+  element.scrollIntoView({
+    behavior: 'smooth'
+  });
+  clickMonthlyContents(urlparam);
+}
+});
+
+</script>
+
+     
+<div id="sub">
+
+
+
+
+
+
+  <div style="width:100%;margin-bottom:5px;line-height:1.2 !important;">
+          <b><span style="font-size:15px">12月15日(夕) </span><span style="font-size:16px"> <font color="blown">いんげんのスローサラダ</font></span><span style="font-size:15px"></span></b>
+    <div style="width:100%;margin-bottom:5px">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdI5gRVDkOg9s4M8gf7jfL2Q1gqTzM62WsfVDgkYS0Exiwu6w/viewform?usp=pp_url&amp;entry.172165279=00000&amp;entry.2140112498=デモユーザ" target="_blank" onclick="analytics('ホーム','ひまわりアンケート','ひまわりバナー', 'demo123!')">
+                  <img src="storage/files/3cc6df6ecffd9081af5b9ff4884832d9.png" alt="" class="img">
+      </a>
+    </div>
+      </div>
+
+<div style="width:100%;margin-bottom:5px">
+<a href="questionpage" target="" onclick="analytics('ホーム','バナー', 'アンケート', 'demo123!')">
+  <img src="storage/files/enquete_page.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="https://www.narikoma.co.jp/n/narikoma_system/2026_osechi/index.html" target="_blank" onclick="analytics('ホーム','バナー', 'FSPおせち', 'demo123!')">
+  <img src="storage/files/osechi202508.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="https://www.narikoma.co.jp/n/narikoma_system02/2026_osechi/index.html" target="_blank" onclick="analytics('ホーム','バナー', 'FSおせち', 'demo123!')">
+  <img src="storage/files/f58f6495791b180fbfc009ff4c3ae08f.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="https://saas.actibookone.com/content/detail?param=eyJjb250ZW50TnVtIjoyMTQ3MDl9&amp;detailFlg=0&amp;pNo=1" target="_blank" onclick="analytics('ホーム','バナー', 'アライアンスブック', 'demo123!')">
+  <img src="storage/files/alb.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="http://narikoma.xsrv.jp/monthly_buppan/" target="" onclick="analytics('ホーム','バナー', 'ブログ', 'demo123!')">
+  <img src="storage/files/blog_banner.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="solutionsignin" target="_blank" onclick="analytics('ホーム','バナー', 'ナリbiz', 'demo123!')">
+  <img src="storage/files/solution_site_banner.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="upbringingpage" target="" onclick="analytics('ホーム','バナー', '厨房リーダサポート', 'demo123!')">
+  <img src="storage/files/ikusei_banner.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="zendesksignin" target="_blank" onclick="analytics('ホーム','バナー', 'コミュニティサイト', 'demo123!')">
+  <img src="storage/files/community_site_banner.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="https://saas.actibookone.com/content/detail?param=eyJjb250ZW50TnVtIjozNTA4NDJ9&amp;detailFlg=0&amp;pNo=1" target="_blank" onclick="analytics('ホーム','バナー', '35期アニュアルレポート', 'demo123!')">
+  <img src="storage/files/2250cf376e829c87ecd6eade977dcd89.png" alt="" class="img">
+</a>
+</div>
+<div style="width:100%;margin-bottom:5px">
+<a href="https://www.narikoma.co.jp/n/buppan/%E6%96%B0NEWS/portalContent/manual/【ポータルサイト】導入事例コメントのご協力について.pdf" target="_blank" onclick="analytics('ホーム','バナー', '導入事例', 'demo123!')">
+  <img src="storage/files/caseStudy.png" alt="" class="img">
+</a>
+</div>
+
+
+<div style="width:100%;margin-bottom:5px;">
+<a href="https://forms.gle/weXFF314SJKSzzfj6" target="”_blank”" onclick="analytics('ホーム','人材推進室バナー', '人材推進室バナー', 'demo123!')">
+<img src="images/banner.png" alt="" class="img">
+</a>
+</div>
+
+<!-- GoogleCalendar -->
+<div style="width:100%;margin-bottom:5px;">
+<iframe src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;showTitle=0&amp;showNav=1&amp;showPrint=1&amp;showDate=1&amp;showTabs=1&amp;showCalendars=1&amp;showTz=0&amp;src=YTQyNzA0YWE4MDVlMDNmMDNlMTlhZjdkMjUxOTE4NWQ4ZWE4ZGI0NmE5ZjU4YTIyZjZhYWU3MGI5YzQyMTBhZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=NDcwZjYyMDQ5ZjdjNThhOTYxMTAxNzg5ODM5MmQwMGY5MjI1ZGNhNTZlZDc0MmU5N2Y5YmY2N2FlODhmOGUyY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=MGFlYTBjMjEwYmFhOGVjMWFjNTdmZDdkZGY3ODQzYTg0MDczY2YwMzdlNTQxOTZiNzYxMjhjMDVmYTllZGMwNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=NjBlN2I3YzI5OTVlYzhjMzY5Y2MzZTk3M2I5NzNkMTk0NTNlYjZmZGUzZThjYzYzYWQ4NjE1MjJkMTIwYTMwOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=YzQ0NjlkZGZhNDE0YzMwZGZjOWE5MTg2ZDgwOWExOTM1MGIxMDVkZDE0OGY0ZWZlNDc1ZGZlNzgzMGY2ZmYxNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=YjNmNzk3OTZhMzIwZGM3Y2IwMTgzODMxYjhkZmFkMGRhNmM0MjM4NWM5MWM1MDAzNzJhZWM0OTQ4ZDEyYTg0MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=MzdjYmExNGRjNTU0MTJkNDQ0NGI3YTYwZjMzYmI5YzY2ZTNmMGM3YjJkYzdlYTI4ODgyMzc4YzE3ZDEzOTlhNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23E4C441&amp;color=%23F09300&amp;color=%23D81B60&amp;color=%23D50000&amp;color=%23A79B8E&amp;color=%234285F4&amp;color=%230B8043&amp;color=%23616161" width="800" height="450" frameborder="0" scrolling="no"></iframe>
+<a href="#naviscroll" onclick="clickMonthlyContents('#calendar');analytics('ナビゲーションバー','カレンダー','カレンダー', 'demo123!')">
+  <img src="images/calendar_banner.png">
+</a>
+</div>
+
+<a href="https://113366.com/narikoma" target="_blank" onclick="analytics('ホーム', '遠隔操作', '遠隔操作', 'demo123!')">
+<img src="images/banner03_off.gif">
+</a>
+
+
+</div>
+<!--/#sub-->
+  </div>
+</div>
+ <footer>
+<div id="footermenu" class="inner">
+<ul>
+  <li class="title">サイトマップ</li>
+  <li><a href="https://www.narikoma-enterprise.com/portalsite/home" onclick="analytics('フッター', 'サイトマップ' ,'ホーム', 'demo123!')"><u>ホーム</u></a></li>
+  <li><a href="https://www.narikoma-enterprise.com/portalsite/mypage" onclick="analytics('フッター','サイトマップ','マイページ', 'demo123!')"><u>マイページ</u></a></li>
+  <li><a href="https://www.narikoma-enterprise.com/portalsite/updinfopage" onclick="analytics('フッター','サイトマップ','更新情報（アーカイブ）', 'demo123!')"><u>更新情報</u></a></li>
+        <li><a href="#pickupH" onclick="analytics('フッター','サイトマップ','ピックアップ', 'demo123!')"><u>ピックアップ</u></a></li>
+  
+  <li><a href="http://www.narikoma.co.jp/n/buppan/corona/すこやか.html" target="_blank" onclick="analytics('フッター','サイトマップ','新型コロナウイルス関連', 'demo123!')"><u>新型コロナウイルス関連</u></a></li>
+
+        <li><a href="https://www.narikoma-enterprise.com/portalsite/ekibenpage" onclick="analytics('フッター','サイトマップ','駅弁（アーカイブ）', 'demo123!')"><u>駅弁</u></a></li>
+        <li><a href="messageboardpage" onclick="analytics('フッター','サイトマップ','人材推進室コーナー', 'demo123!')"><u>人材推進室コーナー</u></a></li>
+
+</ul>
+              <ul>
+      <li class="title">毎月更新資料</li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#dayori');analytics('フッター','サイトマップ','25日配信　献立だより', 'demo123!')"><u>25日配信　献立だより</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#recipe');analytics('フッター','サイトマップ','10日配信　調理レシピ', 'demo123!')"><u>10日配信　調理レシピ</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#naricommu');analytics('フッター','サイトマップ','25日配信　献立・商品情報', 'demo123!')"><u>25日配信　献立・商品情報</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#naricommu2');analytics('フッター','サイトマップ','10日配信　ナリコマタイムズ', 'demo123!')"><u>10日配信　ナリコマタイムズ</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#changeddish');analytics('フッター','サイトマップ','最終金曜日配信　代替料理・消耗品', 'demo123!')"><u>最終金曜日配信　代替料理・消耗品</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#selection');analytics('フッター','サイトマップ','25日配信　セレクション・禁止食一覧', 'demo123!')"><u>25日配信　セレクション・禁止食一覧</u></a></li>
+                            <li><a href="#naviscroll" onclick="clickMonthlyContents('#bread');analytics('フッター','サイトマップ','25日配信　手作りパン', 'demo123!')"><u>25日配信　手作りパン</u></a></li>
+                            <li><a href="#naviscroll" onclick="clickMonthlyContents('#catalog');analytics('フッター','カタログ発注','カタログ発注', 'demo123!')"><u>カタログ発注</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#menu');analytics('フッター','お品書き・おすすめ料理','お品書き・おすすめ料理', 'demo123!')"><u>お品書き・おすすめ料理</u></a></li>
+      <li><a href="#naviscroll" onclick="clickMonthlyContents('#calendar');analytics('フッター','カレンダー','カレンダー', 'demo123!')"><u>カレンダー</u></a></li>
+    </ul>
+                <div>
+
+      <ul class="submenu">
+      <li class="title">マニュアル・動画</li>
+      
+      <li><a href="moviepage" onclick="analytics('フッター','サイトマップ','動画一覧', 'demo123!')"><u>お役立ち動画</u></a></li>
+
+                  
+      
+          
+                                        
+                              
+        <li>
+          <b>厨房運営</b>
+
+        
+                          </li><li><a class="dropdown-item" href="manualpageall#catC34" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>運営全般</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC32" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>危機管理（非常時・災害時）</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC33" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>厨房ﾘｰﾀﾞｰ（ﾁｰﾌ）育成ﾂｰﾙ</u></a></li>
+          
+                                                      
+
+                    
+                              
+        <li>
+          <b>栄養管理</b>
+
+        
+                          </li><li><a class="dropdown-item" href="manualpageall#catC44" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>栄養管理</u></a></li>
+          
+                                                      
+
+                    
+                              
+        <li>
+          <b>厨房業務</b>
+
+        
+                          </li><li><a class="dropdown-item" href="manualpageall#catC27" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>発注</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC21" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>ﾀﾌﾞﾚｯﾄ・WEB系サービス</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC30" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>調理方法</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC28" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>盛り付け方法</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC31" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>配膳方法</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC25" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>検収・収納（検品ｼｽﾃﾑ）</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC26" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>洗浄</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC23" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>厨房業務一日の流れ</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC29" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>衛生管理</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC45" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>衛生管理（作成用）</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC22" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>厨房内必要書類</u></a></li>
+          
+                                                      
+
+                    
+                              
+        <li>
+          <b>サービス仕様書</b>
+
+        
+                          </li><li><a class="dropdown-item" href="manualpageall#catC43" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>サービス仕様書</u></a></li>
+          
+                                                      
+
+                    
+                              
+        <li>
+          <b>掲示用ポスター・配布用資料</b>
+
+        
+                          </li><li><a class="dropdown-item" href="manualpageall#catC35" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>ナリコマ参考資料</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC37" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>厨房業務</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC38" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>衛生管理</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC36" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>人材育成</u></a></li>
+          
+                                                      
+
+                    
+                              
+        <li>
+          <b>人材育成支援ツール</b>
+
+        
+                          </li><li><a class="dropdown-item" href="manualpageall#catC39" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>採用～入社まで</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC41" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>入社後</u></a></li>
+          
+                                        
+                  
+                          <li><a class="dropdown-item" href="manualpageall#catC42" onclick="analytics('ナビゲーションバー','マニュアル','マニュアル（アーカイブ）', 'demo123!')">　<u>厨房リーダーになる前に</u></a></li>
+          
+                            
+      </ul>
+  </div>
+
+
+                      <ul>
+      <li class="title">ご意見・ご要望</li>
+                          
+      <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSd5X15yfU_llFqVtt3PH7H044jU-4fsi2nzkC3Ldy9UBdZZaQ/viewform?usp=pp_url&amp;entry.228762244=デモユーザ&amp;entry.954212474=00000" onclick="analytics('フッター','サイトマップ','ポータルサイトに関するご意見はこちら', 'demo123!')"><u>ポータルサイトに関するご意見はこちら</u></a></li>
+      <li><a href="https://www.narikoma-enterprise.com/portalsite/feedback" onclick="analytics('フッター','サイトマップ','《随時更新》お客様の声への取り組み&lt;', 'demo123!')"><u>《随時更新》お客様の声への取り組み</u></a></li>
+    </ul>
+              
+<ul>
+
+  <li class="title">外部サイト</li>
+        <li><a href="https://www.narikoma-group.co.jp/corp/" target="_blank" onclick="analytics('フッター','サイトマップ','ナリコマ企業サイト', 'demo123!')"><u>ナリコマ企業サイト</u></a></li>
+  <li><a href="https://narikoma.xsrv.jp/monthly_buppan/" target="_blank" onclick="analytics('フッター','サイトマップ','ブログ', 'demo123!')"><u>ブログ</u></a></li>
+   <li><a href="https://www.narikoma-enterprise.com/portalsite/solutionsignin" target="_blank" onclick="analytics('ヘッダー','サイトマップ','ナリbiz', 'demo123!')"><u>ナリbiz</u></a></li>
+        <li><a href="https://www.narikoma-enterprise.com/portalsite/zendesksignin" target="_blank" onclick="analytics('ヘッダー','サイトマップ','コミュニティサイト', 'demo123!')"><u>コミュニティサイト</u></a></li>
+  
+</ul>
+
+</div>
+
+<div class="inner">
+<p style="color:black !important"><b>運営会社：（株）ナリコマエンタープライズ</b></p>
+<p style="color:black !important"><b>〒532-0004　大阪市淀川区西宮原1－4－2　ナリコマHD新大阪ビル</b></p>
+</div>
+
+<div id="copyright">
+<small>© <a href="https://www.narikoma-enterprise.com/portalsite/home">Narikoma Group</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</div>
+<div id="page_top" style="right: 0px;"><a href="#"></a></div>
+
+</footer>
+<div id="modal-content" style="left: 458px; top: 246.5px;">
+      
+    
+</div>
+
+<script>
+  if (OCwindowWidth() <= 900) {
+    open_close("menubar_hdr", "menubar-s");
+  }
+</script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/popper.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/bootstrap.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/swiper-bundle.min.js"></script>
+<script src="https://www.narikoma-enterprise.com/portalsite/js/portal.js?202304041200"></script>
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" type="text" value="" id="focus_retriever" readonly="true"></div><script src="https://app.chatplus.jp/assets/js/app/chatplusscript.min.js?v=1961989"></script><script src="https://appimg.chatplus.jp/app/s/lib/jqueryc.min.js" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jQueryPlus" type="text/javascript"></script><script src="https://appimg.chatplus.jp/app/s/lib/riot/3.13.2/riot%2Bcompiler_2.min.js" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="riot" type="text/javascript"></script><script src="https://appimg.chatplus.jp/app/s/lib/underscore/underscorec.min.js" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore" type="text/javascript"></script><iframe id="jp.chatplus.app_chat_frame" src="https://app.chatplus.jp/chat/visitor/df902aae_2/c?pt=%E3%83%8A%E3%83%AA%E3%82%B3%E3%83%9E%20%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%88&amp;pu=https%3A%2F%2Fwww.narikoma-enterprise.com%2Fportalsite%2Fhome&amp;pr=https%3A%2F%2Fwww.narikoma-enterprise.com%2Fportalsite%2Flogin&amp;c=b8y882o7zj71xka8j4ajdf902aae&amp;pp=%7B%22chatCompanyName%22%3A%22%E3%83%87%E3%83%A2%E3%83%A6%E3%83%BC%E3%82%B6%22%2C%22chatTel%22%3A%2200000%22%7D#{&quot;accessTime&quot;:1765790364031}" style="display:none" frameborder="no"></iframe><chat><div id="chatplusview" role="application" aria-label="ChatPlus" class=" chatplusview-modern front     closed headless       " aria-expanded="false"> <div id="outline"> <div id="chatpluscontent"> <balloon aria-controls="chatplusview" tabindex="0" data-type="1" hidden="" style="display: none;"><div class="button-close" role="button" tabindex="0"><i role="presentation" aria-hidden="true" class="cpfar fa-times fa-lg"></i></div> <div class="content autosize" style=""></div> </balloon> <div id="eye_catcher" class="eyecatcher-no_chat" aria-controls="chatplusview" tabindex="0"> <img src="https://appimg.chatplus.jp/app/16478/eyecatcher/eyecatcher2.1686893023.png" width="4500" height="1369">  <a class="button-hide" role="button" tabindex="0" aria-controls="chatplusview" title="非表示"><i role="presentation" aria-hidden="true" class="cpfas fa-times fa-lg"></i></a> </div>  <div id="chatplusheader" aria-controls="chatplusview" tabindex="0"> <div id="profile" class="profile" role="heading"> <span class="name">お困りではありませんか？</span> </div> <div class="operate">    <a class="button-hide" role="button" tabindex="0" aria-controls="chatplusview" title="非表示"><i role="presentation" aria-hidden="true" class="cpfas fa-times fa-lg"></i></a> </div> </div> <div id="body" aria-hidden="true"> <h2> <div class="icon"><i role="presentation" aria-hidden="true" class="cpfas fa-comments fa-3x"></i></div> <div class="text"><abr cptag="1" content="ご不明な点がありましたら、チャットでお答えします。以下の情報を入力して開始してください。">ご不明な点がありましたら、チャットでお答えします。以下の情報を入力して開始してください。</abr></div> </h2> <form id="form-start" class="form-horizontal" onsubmit="return false;"> <div id="name_form_group" class="form-group"> <label class="col-sm-4 control-label" id="oastn701">名前</label> <div class="col-sm-8"><input name="visitor_name" class="form-control" type="text" placeholder="名前"> </div> <input name="name_label" type="hidden" value="名前"> </div>        <div class="error-message"></div> <div class="form-group btn-container"> <button id="start_btn" type="button" class="btn btn-block"> <span>チャットを開始する</span> </button> </div>   </form> <div id="option_form" hidden="" style="display: none;"> <div class="operate"> <div class="input-file">オプション</div> <div class="options"> <label for="option_form__mute">通知音を出さない</label> <input type="checkbox" name="mute" id="option_form__mute">  <label for="option_form__submitKey">送信キー</label> <select name="submitKey" id="option_form__submitKey" class="form-control"> <option value="enter">Enter</option><option value="shift" selected="selected">Shift+Enter</option><option value="meta">Command+Enter</option><option value="ctrl">Ctrl+Enter</option><option value="alt">Option+Enter</option><option value="none">(なし)</option> </select>  </div> <div class="button-container"> <button class="btn btn-sm" type="button"><span>適用</span></button> <button class="btn btn-sm" type="button"><span>キャンセル</span></button> </div> </div> </div> </div> <div id="chatplusfooter"> <span class="footer option"></span> <span class="deprecated-secondary-font style-background-color footer powered"><a role="button" tabindex="0">Powered by Chat Plus</a></span> </div> </div> </div>    <div class="buttons"> <button id="openChat"></button> <button id="closeChat"></button> <button id="showChat"></button> <button id="hideChat"></button> <button id="quitChat"></button> <button id="showPrompt"></button> <button id="hidePrompt"></button> </div> </div></chat><script id="chat_config" type="application/json">{"appearance":{"themeName":"modern","themeParams":{"borderAndButton":"#027c96","border":"#e60012","button":"#00e631","background":"rgba(255,255,255,0.9)","balloonbg":"#ededed","balloonbg2":"#ede7b0","choice":"#e60012","choicehover":"#ef6a74","choicecheck":"#b00b18","choicetext":"#ffffff","choicechecktext":"#ffffff","font1":"#ffffff","font2":"#000000","font3":"#000000","font4":"#000000","ph":"#464343","font5":"#666666","font6":"#666666","font7":"#ffffff","option":false,"spHeight":"80","spHeightArea":true,"spZoom":true,"setOffColor":false,"spTitleSmall":true,"spLargeHeader":false,"optionTitle":"","closeButton":true,"minimizeButton":true,"expandButton":true,"compressButton":true,"closeButtonPc":true,"minimizeButtonPc":true,"closeButtonSp":true,"minimizeButtonSp":true,"expandButtonSp":true,"compressButtonSp":true,"fontsize":17,"textfontfamily":"\"游ゴシック\"","textareafontsize":"xl","textareabg":"#f5fbf5","textareafg":"#010101","heightType":"pct","heightPct":80,"suggestbg":"#ffffff","suggestfg":"#000000","thumbnailWidth":100,"thumbnailHeight":0,"thumbnailWidthUnit":"%","thumbnailHeightUnit":"%","selectfontweight":true,"choicehovertext":"#ffffff","quitconfirmbg":"rgba(255,255,255,0.9)","quitconfirmtext":"#000000","suggesthoverbg":"#e2edf9","suggesthoverfg":"#000000","suggesthitfg":"#027c96","spEdge":0},"eyeCatcher":{"enable":true,"always":true,"only":true,"image":"https://appimg.chatplus.jp/app/16478/eyecatcher/eyecatcher2.1686893023.png","skip":false,"image_mimetype":"image/png","image_width":4500,"image_height":1369,"last_modified":1686893023,"top":70,"top_unit":"vh","no_chat":{"pc":{"same":true},"sp":{"same":true}},"no_agent":{"pc":{"same":true},"sp":{"same":true}},"in_chat":{"pc":{"same":true},"sp":{"same":true}},"close_chat":{"pc":{"same":true},"sp":{"same":true}},"top_sp":70,"top_unit_sp":"vh"},"start":{"title":"お困りではありませんか？","explanation":"ご不明な点がありましたら、チャットでお答えします。以下の情報を入力して開始してください。","firstMessage":"ナリコマポータルへようこそ！\r\n\r\n[[cpb;cpu:メッセージ欄]]に[[cpb;cpcolor=\"#ff0000\":キーワード(単語)]]をご入力いただくと[[cpb;cpu:回答の候補が表示]]されます。\r\nまたは、以下[[cpb;cpu:選択肢]]から内容を絞り込んでください。","firstMessageRestart":true,"displayWhenRestart":true,"firstQuestions":["お問い合わせ","お届け商品についての連絡","よくある質問はこちら","※原材料調査の依頼※","[[cpbgcolor=\"#800000\":チャットボットの使い方（動画）]]"],"getName":true,"getCompany":false,"getEmail":false,"getTel":false,"getContact":false,"getNameRequired":false,"getCompanyRequired":false,"getEmailRequired":false,"getTelRequired":false,"getContactRequired":false,"remark":"","firstMessageAgent":true,"useAgentMessage":false,"firstMessageOffline":true,"useRestartMessage":false,"logmail":false,"logmailSupport":false,"disable":true,"errorTel":"電話番号","emailQuestion":"チャット終了時に、内容をメールで送信する。","useOfflineMessage":false,"status":"in_chatbot"},"disconnect_disable":false,"disconnect_no_form":false,"disconnect_title":"メッセージを残す","disconnect_body":"オペレーターは今対応できません。メッセージをお残しください。すぐにこちらからご連絡いたします。","disconnect_remark":"","disconnect":[{"title":"タイトル","type":"title","required":"1","items":[]},{"title":"詳細内容","type":"textarea","required":"0","items":[]}],"calling":{"explanation":"ただいまチャットが混み合っております。\r\n恐れ入りますが順番にオペレーターに繋ぎますので、そのまましばらくお待ちください。\r\n\r\nあなたの順番は%number%番目で、約%min%分お待ちいただいております。","disable":null,"useSelect":false,"title":"オペレーターに接続中です","useLimit":true,"limit":3,"threshold":2,"between1":5,"between2":3},"talking":{"logo":false,"title":"チャットボットが疑問を解決します","phoneNumber":"","agentPhoto":true,"uploadByAgent":true,"uploadByVisitor":true,"explanation":"","showWriting":true,"showWritingAlways":false,"hidePrompt":false,"hidePromptWhenOffline":false,"hidePromptWhenChatbot":false,"showPastMessages":true,"showPastMessages_msg":"","useImageMap":false,"submitKey":"shift","showChatbotWriting":false,"prompt":"メッセージ欄\r\nキーワード(単語)をご入力ください","prompt_offline":"メッセ―ジ欄（人工知能が自動応答します）","prompt_phone":"【メッセージ欄】キーワード(単語)をご入力ください","prompt_phone_offline":"メッセ―ジ欄（人工知能が自動応答します）","prompt_phone_compressed":null,"uploadOnlyInchat":true,"suggestSource":"suggestknowledge","prompt_phone_chatbot":"メッセージ欄\r\nキーワード(単語)をご入力ください","suggests":[{"suggestSource":"suggestknowledge","suggestCount":5,"suggestCategories":[12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39],"suggestEvaluate":true,"suggestQ":false,"suggestAgent":"both","suggestHiddenEvaluate":false,"suggestType":"knowledge"}]},"end":{"rate":true,"questionnaire":false,"close":false,"suppress":false,"suppressTime":60,"title":"ありがとうございました","message":{"visitor":"お客様にてチャットが終了されました","agent":"担当者からチャットを終了しました","mute":"一定時間新しい発言がなかったため終了しました","no_agent":"ステータスが「オフライン」に変更されました","bot":"チャットボットによりチャットが終了されました"}},"hideButton":{"eyecatcher":true,"titlebar":true},"contact_sucesMess":"ありがとうございます。メッセージ送信が完了いたしました。サポートチームからご連絡させていただきます。"},"waitingMessage":"当社のスタッフがすぐに伺います。あなたは順番%number%番目です。待ち時間は%minutes%分です。もうしばらくお待ちください。","dispatchMode":"auto","goals":[],"startup":{"disuseContact":true,"everChatbot":true,"chatLog":false,"autoQuit":false,"showAbsence":false,"agentId":"","botOnly":false,"everChat":false,"lockChoices":false,"noActiveclMes":false,"assignOffline":false,"assignLimitless":false,"assignWait":false,"absenceInChat":false,"absenceMess":null,"changeAgentByMessage":false,"confirmChangingAgentByMessage":false},"timezone":"Asia/Tokyo","balloon":{"pc":{"type":1,"style":{"bottom":170,"bottom_unit":"px","edge":100,"edge_unit":"px","height":50,"height_unit":"px","border-color":"#fd0606","border-width":8},"font":[],"hidebutton":[]},"sp":{"type":1,"style":[],"font":[],"hidebutton":[]},"enabled":true},"logo_image":null,"frame_image":null,"timezone_offset":0,"poweredby":"Chat Plus","siteurl":"https://chatplus.jp"}</script><script src="https://app.chatplus.jp/assets/js/app/onerror.min.js"></script><script src="https://app.chatplus.jp/assets/js/riot-tags/output.tag.js?v=2025102203" type="riot/tag"></script><script src="https://app.chatplus.jp/assets/js/riot-tags/chat.tag.js?v=2025102203" type="riot/tag"></script><script src="https://app.chatplus.jp/assets/js/app/visitor-client_202307.min.js?v=2025102203"></script><script src="https://app.chatplus.jp/assets/js/riot-tags/balloon.tag.js?v=2025102203" type="riot/tag"></script><script src="https://appimg.chatplus.jp/app/s/lib/slick.min.js"></script></body></html>

@@ -19,8 +19,8 @@ export default function Home() {
   const [verificationMessage, setVerificationMessage] = useState('');
   const [isClient, setIsClient] = useState(false);
   const [customFields] = useState({
-    aa: 'カスタムフィールドCaaa',
-    ddd: 'カスタムフィールドDbbb',
+    aa: 'カスタムフィールドAaaa',
+    bb: 'カスタムフィールドBbbb',
   });
   const [widgetBaseUrl, setWidgetBaseUrl] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -201,16 +201,12 @@ export default function Home() {
       {configLoaded && scriptId && (
         <Script
           key={scriptId}
-          src={`${widgetBaseUrl}/widget.js?id=${scriptId}&aa=${encodeURIComponent(customFields.aa)}&ddd=${encodeURIComponent(customFields.ddd)}`}
+          src={`${widgetBaseUrl}/widget.js?id=${scriptId}&aa=${encodeURIComponent(customFields.aa)}&bb=${encodeURIComponent(customFields.bb)}`}
           strategy="afterInteractive"
           onLoad={() => {
             console.log('Widget script loaded via Next.js Script component');
             console.log('Script ID:', scriptId);
             console.log('Custom Fields:', customFields);
-            console.log(
-              'Script URL:',
-              `${widgetBaseUrl}/widget.js?id=${scriptId}&aa=${encodeURIComponent(customFields.aa)}&ddd=${encodeURIComponent(customFields.ddd)}`
-            );
             console.log('Current scriptId state:', scriptId);
           }}
           onError={(error) => {
@@ -219,7 +215,7 @@ export default function Home() {
             console.error('Custom Fields:', customFields);
             console.error(
               'Script URL:',
-              `${widgetBaseUrl}/widget.js?id=${scriptId}&aa=${encodeURIComponent(customFields.aa)}&ddd=${encodeURIComponent(customFields.ddd)}`
+              `${widgetBaseUrl}/widget.js?id=${scriptId}&aa=${encodeURIComponent(customFields.aa)}&bb=${encodeURIComponent(customFields.bb)}`
             );
           }}
         />
@@ -235,6 +231,7 @@ export default function Home() {
             <p className="text-xl text-gray-600 mb-8">
               チャット機能付きウェブサイト
             </p>
+            <button id="logo">ボタン</button>
           </div>
 
           {/* チャット情報カード */}
@@ -289,8 +286,8 @@ export default function Home() {
 
               <div className="bg-red-50 p-4 rounded-lg text-center">
                 <div className="text-red-600 text-xl mb-1">🔧</div>
-                <h3 className="font-medium text-gray-800 text-sm mb-1">ddd</h3>
-                <p className="text-gray-600 text-sm">{customFields.ddd}</p>
+                <h3 className="font-medium text-gray-800 text-sm mb-1">bb</h3>
+                <p className="text-gray-600 text-sm">{customFields.bb}</p>
               </div>
             </div>
           </div>
