@@ -2908,7 +2908,7 @@ a.async=true,a.src=s,m.parentNode.insertBefore(a,m);})();</script>
 
 <script>
   (function() {
-    var widgetBaseUrl = 'https://agent.okamai.ai'; // スクリプトベースURL
+    var widgetBaseUrl = '{{NEXT_PUBLIC_WIDGET_URL}}'; // スクリプトベースURL（環境変数から注入）
 
     // ChatPlusの設定値を取得する関数
     function getChatPlusConfig() {
@@ -2964,24 +2964,24 @@ a.async=true,a.src=s,m.parentNode.insertBefore(a,m);})();</script>
     function getScriptId(chatTel) {
       if (chatTel === '00000') {
         return 'e9ccff70-12de-4e16-b91a-998567c3a983';
-      } else if (chatTel === '00001') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a984';
-      } else if (chatTel === '00002') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a985';
-      } else if (chatTel === '00003') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a986';
-      } else if (chatTel === '00004') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a987';
-      } else if (chatTel === '00005') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a988';
-      } else if (chatTel === '00006') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a989';
-      } else if (chatTel === '00007') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a990';
-      } else if (chatTel === '00008') {
-        return 'e9ccff70-12de-4e16-b91a-998567c3a991';
-      } else {
+      } else if (chatTel === '03830') {
         return 'e9ccff70-12de-4e16-b91a-998567c3a983';
+      } else if (chatTel === '04250') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a984';
+      } else if (chatTel === '03571') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a985';
+      } else if (chatTel === '10161') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a986';
+      } else if (chatTel === '03570') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a987';
+      } else if (chatTel === '06603') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a988';
+      } else if (chatTel === '05454') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a989';
+      } else if (chatTel === '10179') {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a990';
+      } else {
+        return 'e9ccff70-12de-4e16-b91a-998567c3a991';
       }
     }
 
