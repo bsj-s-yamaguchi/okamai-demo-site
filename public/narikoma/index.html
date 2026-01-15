@@ -2985,42 +2985,6 @@ a.async=true,a.src=s,m.parentNode.insertBefore(a,m);})();</script>
       }
     }
 
-    // IPアドレスを取得する関数
-    function getClientIP() {
-      return new Promise(function(resolve) {
-        if (window.RTCPeerConnection) {
-          var pc = new RTCPeerConnection({iceServers: []});
-          pc.createDataChannel('');
-          pc.createOffer(function(sdp) {
-            pc.setLocalDescription(sdp);
-          }, function() {});
-
-          pc.onicecandidate = function(event) {
-            if (event.candidate) {
-              var candidate = event.candidate.candidate;
-              var ipMatch = candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/);
-              if (ipMatch) {
-                resolve(ipMatch[1]);
-                pc.close();
-              }
-            }
-          };
-
-          setTimeout(function() {
-            resolve('unknown');
-            pc.close();
-          }, 1000);
-        } else {
-          resolve('unknown');
-        }
-      });
-    }
-
-    // ユーザーエージェントを取得する関数
-    function getUserAgent() {
-      return navigator.userAgent || 'unknown';
-    }
-
     // ウィジェットスクリプトを読み込む関数
     function loadWidgetScript(config, scriptId, ip, userAgent) {
       if (!scriptId || scriptId === '') {
