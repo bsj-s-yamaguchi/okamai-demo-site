@@ -114,6 +114,20 @@ const nextConfig: NextConfig = {
   //   removeConsole: process.env.NODE_ENV === 'production',
   // },
 
+  async rewrites() {
+    return [
+      // /itoshima デモ: 糸島市サイトのJSが現在オリジン基準で読むアセット/RSSを実サイトへプロキシ
+      {
+        source: '/core/:path*',
+        destination: 'https://www.city.itoshima.lg.jp/core/:path*',
+      },
+      {
+        source: '/rss/:path*',
+        destination: 'https://www.city.itoshima.lg.jp/rss/:path*',
+      },
+    ];
+  },
+
   // CORS設定
   async headers() {
     return [
